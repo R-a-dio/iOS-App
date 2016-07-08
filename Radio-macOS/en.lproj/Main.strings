@@ -1,0 +1,51 @@
+
+/* Class = "NSMenuItem"; title = "Radio-macOS"; ObjectID = "1Xt-HY-uBw"; */
+"1Xt-HY-uBw.title" = "R/a/dio";
+
+/* Class = "NSMenuItem"; title = "Quit Radio-macOS"; ObjectID = "4sb-4s-VLi"; */
+"4sb-4s-VLi.title" = "Quit R/a/dio";
+
+/* Class = "NSMenuItem"; title = "About Radio-macOS"; ObjectID = "5kV-Vb-QxS"; */
+"5kV-Vb-QxS.title" = "About R/a/dio";
+
+/* Class = "NSMenu"; title = "Main Menu"; ObjectID = "AYu-sK-qS6"; */
+"AYu-sK-qS6.title" = "Main Menu";
+
+/* Class = "NSMenuItem"; title = "Preferences…"; ObjectID = "BOF-NM-1cW"; */
+"BOF-NM-1cW.title" = "Preferences…";
+
+/* Class = "NSMenu"; title = "Help"; ObjectID = "F2S-fz-NVQ"; */
+"F2S-fz-NVQ.title" = "Help";
+
+/* Class = "NSMenuItem"; title = "Radio-macOS Help"; ObjectID = "FKE-Sm-Kum"; */
+"FKE-Sm-Kum.title" = "R/a/dio Help";
+
+/* Class = "NSMenuItem"; title = "Show All"; ObjectID = "Kd2-mp-pUS"; */
+"Kd2-mp-pUS.title" = "Show All";
+
+/* Class = "NSMenuItem"; title = "Bring All to Front"; ObjectID = "LE2-aR-0XJ"; */
+"LE2-aR-0XJ.title" = "Bring All to Front";
+
+/* Class = "NSMenuItem"; title = "Minimize"; ObjectID = "OY7-WF-poV"; */
+"OY7-WF-poV.title" = "Minimize";
+
+/* Class = "NSMenuItem"; title = "Hide Radio-macOS"; ObjectID = "Olw-nP-bQN"; */
+"Olw-nP-bQN.title" = "Hide R/a/dio";
+
+/* Class = "NSMenuItem"; title = "Zoom"; ObjectID = "R4o-n2-Eq4"; */
+"R4o-n2-Eq4.title" = "Zoom";
+
+/* Class = "NSMenu"; title = "Window"; ObjectID = "Td7-aD-5lo"; */
+"Td7-aD-5lo.title" = "Window";
+
+/* Class = "NSMenuItem"; title = "Hide Others"; ObjectID = "Vdr-fp-XzO"; */
+"Vdr-fp-XzO.title" = "Hide Others";
+
+/* Class = "NSMenuItem"; title = "Window"; ObjectID = "aUF-d1-5bR"; */
+"aUF-d1-5bR.title" = "Window";
+
+/* Class = "NSMenu"; title = "Radio-macOS"; ObjectID = "uQy-DD-JDr"; */
+"uQy-DD-JDr.title" = "R/a/dio";
+
+/* Class = "NSMenuItem"; title = "Help"; ObjectID = "wpr-3q-Mcd"; */
+"wpr-3q-Mcd.title" = "Help";

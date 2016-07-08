@@ -1,0 +1,781 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1C68E8D3EF1ADE943FCE3BE1 /* libPods-Radio-macOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A2771847541A164EA564792 /* libPods-Radio-macOS.a */; };
+		5B9325731D2FEC6F0072A11F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9325721D2FEC6F0072A11F /* AppDelegate.swift */; };
+		5B9325781D2FEC6F0072A11F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B9325761D2FEC6F0072A11F /* Main.storyboard */; };
+		5B93257A1D2FEC6F0072A11F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5B9325791D2FEC6F0072A11F /* Assets.xcassets */; };
+		5B93257D1D2FEC6F0072A11F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B93257B1D2FEC6F0072A11F /* LaunchScreen.storyboard */; };
+		5B9325891D2FEC7C0072A11F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9325881D2FEC7C0072A11F /* AppDelegate.swift */; };
+		5B93258D1D2FEC7C0072A11F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5B93258C1D2FEC7C0072A11F /* Assets.xcassets */; };
+		5B9325901D2FEC7C0072A11F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B93258E1D2FEC7C0072A11F /* Main.storyboard */; };
+		5B93259D1D2FED310072A11F /* SharedAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5B93259C1D2FED310072A11F /* SharedAssets.xcassets */; };
+		5B93259E1D2FED310072A11F /* SharedAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5B93259C1D2FED310072A11F /* SharedAssets.xcassets */; };
+		5B9325AF1D2FF5B60072A11F /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9325AE1D2FF5B60072A11F /* API.swift */; };
+		5B9325B01D2FF5B60072A11F /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9325AE1D2FF5B60072A11F /* API.swift */; };
+		5B9325B21D2FF6570072A11F /* RadioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9325B11D2FF6570072A11F /* RadioPlayer.swift */; };
+		5B9325B31D2FF6570072A11F /* RadioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9325B11D2FF6570072A11F /* RadioPlayer.swift */; };
+		5B9325B61D2FF81B0072A11F /* DJ.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9325B51D2FF81B0072A11F /* DJ.swift */; };
+		5B9325B71D2FF81B0072A11F /* DJ.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9325B51D2FF81B0072A11F /* DJ.swift */; };
+		5B9325B91D2FFAC70072A11F /* Track.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9325B81D2FFAC70072A11F /* Track.swift */; };
+		5B9325BA1D2FFAC70072A11F /* Track.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9325B81D2FFAC70072A11F /* Track.swift */; };
+		5B9325BF1D2FFF090072A11F /* Fallback.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5B9325BE1D2FFF090072A11F /* Fallback.mp3 */; };
+		5B9325C01D2FFF090072A11F /* Fallback.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5B9325BE1D2FFF090072A11F /* Fallback.mp3 */; };
+		5B9325C61D3014410072A11F /* PlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9325C51D3014410072A11F /* PlayerViewController.swift */; };
+		5B9325C81D302EDC0072A11F /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 5B9325C71D302EDC0072A11F /* Credits.rtf */; };
+		5B9325CA1D303BFD0072A11F /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9325C91D303BFD0072A11F /* Theme.swift */; };
+		5B9325CB1D303BFD0072A11F /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9325C91D303BFD0072A11F /* Theme.swift */; };
+		64E203806FA69D7E55C5D8EC /* libPods-Radio-iOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F8F5925C50C52E23A80F4B70 /* libPods-Radio-iOS.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		2A2771847541A164EA564792 /* libPods-Radio-macOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Radio-macOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4DDC094540CABAD7690896D0 /* Pods-Radio-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Radio-iOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-Radio-iOS/Pods-Radio-iOS.release.xcconfig"; sourceTree = "<group>"; };
+		4E97061279985315B165D622 /* Pods-Radio-macOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Radio-macOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Radio-macOS/Pods-Radio-macOS.debug.xcconfig"; sourceTree = "<group>"; };
+		5B93256F1D2FEC6F0072A11F /* Radio-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Radio-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5B9325721D2FEC6F0072A11F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		5B9325771D2FEC6F0072A11F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		5B9325791D2FEC6F0072A11F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		5B93257C1D2FEC6F0072A11F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		5B93257E1D2FEC6F0072A11F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5B9325861D2FEC7C0072A11F /* Radio-macOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Radio-macOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5B9325881D2FEC7C0072A11F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		5B93258C1D2FEC7C0072A11F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		5B93258F1D2FEC7C0072A11F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		5B9325911D2FEC7C0072A11F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5B93259C1D2FED310072A11F /* SharedAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = SharedAssets.xcassets; path = "Radio-Core/SharedAssets.xcassets"; sourceTree = "<group>"; };
+		5B93259F1D2FF1DD0072A11F /* Radio-macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Radio-macOS.entitlements"; sourceTree = "<group>"; };
+		5B9325A61D2FF4400072A11F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
+		5B9325A71D2FF4420072A11F /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Main.strings"; sourceTree = "<group>"; };
+		5B9325A91D2FF4D20072A11F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
+		5B9325AB1D2FF4EF0072A11F /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Main.strings"; sourceTree = "<group>"; };
+		5B9325AE1D2FF5B60072A11F /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = API.swift; path = "Radio-Core/API/API.swift"; sourceTree = "<group>"; };
+		5B9325B11D2FF6570072A11F /* RadioPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RadioPlayer.swift; path = "Radio-Core/Player/RadioPlayer.swift"; sourceTree = "<group>"; };
+		5B9325B51D2FF81B0072A11F /* DJ.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DJ.swift; path = "Radio-Core/Models/DJ.swift"; sourceTree = "<group>"; };
+		5B9325B81D2FFAC70072A11F /* Track.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Track.swift; path = "Radio-Core/Models/Track.swift"; sourceTree = "<group>"; };
+		5B9325BC1D2FFC340072A11F /* Radio-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Radio-Bridging-Header.h"; path = "Radio-Core/Obj-C to Swift Bridge/Radio-Bridging-Header.h"; sourceTree = "<group>"; };
+		5B9325BE1D2FFF090072A11F /* Fallback.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Fallback.mp3; sourceTree = "<group>"; };
+		5B9325C51D3014410072A11F /* PlayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlayerViewController.swift; path = Controllers/PlayerViewController.swift; sourceTree = "<group>"; };
+		5B9325C71D302EDC0072A11F /* Credits.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = Credits.rtf; sourceTree = "<group>"; };
+		5B9325C91D303BFD0072A11F /* Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Theme.swift; path = "Radio-Core/Models/Theme.swift"; sourceTree = "<group>"; };
+		C69E044791B74DB6EB15C900 /* Pods-Radio-macOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Radio-macOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-Radio-macOS/Pods-Radio-macOS.release.xcconfig"; sourceTree = "<group>"; };
+		E9F6A3298A883AD99BFA65DF /* Pods-Radio-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Radio-iOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Radio-iOS/Pods-Radio-iOS.debug.xcconfig"; sourceTree = "<group>"; };
+		F8F5925C50C52E23A80F4B70 /* libPods-Radio-iOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Radio-iOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		5B93256C1D2FEC6F0072A11F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				64E203806FA69D7E55C5D8EC /* libPods-Radio-iOS.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5B9325831D2FEC7C0072A11F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1C68E8D3EF1ADE943FCE3BE1 /* libPods-Radio-macOS.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		40ED54AC7B85E489D403FB4E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E9F6A3298A883AD99BFA65DF /* Pods-Radio-iOS.debug.xcconfig */,
+				4DDC094540CABAD7690896D0 /* Pods-Radio-iOS.release.xcconfig */,
+				4E97061279985315B165D622 /* Pods-Radio-macOS.debug.xcconfig */,
+				C69E044791B74DB6EB15C900 /* Pods-Radio-macOS.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		5B9325641D2FEB120072A11F = {
+			isa = PBXGroup;
+			children = (
+				5B9325951D2FEC7F0072A11F /* Radio-Core */,
+				5B9325711D2FEC6F0072A11F /* Radio-iOS */,
+				5B9325871D2FEC7C0072A11F /* Radio-macOS */,
+				5B9325701D2FEC6F0072A11F /* Products */,
+				40ED54AC7B85E489D403FB4E /* Pods */,
+				E4CE5C3BF4C7591DE7FC835D /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		5B9325701D2FEC6F0072A11F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5B93256F1D2FEC6F0072A11F /* Radio-iOS.app */,
+				5B9325861D2FEC7C0072A11F /* Radio-macOS.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		5B9325711D2FEC6F0072A11F /* Radio-iOS */ = {
+			isa = PBXGroup;
+			children = (
+				5B9325971D2FECEE0072A11F /* Application Delegate */,
+				5B9325961D2FECE80072A11F /* Views */,
+				5B9325981D2FECF80072A11F /* Supporting Files */,
+				5B9325791D2FEC6F0072A11F /* Assets.xcassets */,
+			);
+			path = "Radio-iOS";
+			sourceTree = "<group>";
+		};
+		5B9325871D2FEC7C0072A11F /* Radio-macOS */ = {
+			isa = PBXGroup;
+			children = (
+				5B9325991D2FED020072A11F /* Application Delegate */,
+				5B93259A1D2FED090072A11F /* Views */,
+				5B9325C41D3014200072A11F /* Controllers */,
+				5B93259B1D2FED130072A11F /* Supporting Files */,
+				5B93258C1D2FEC7C0072A11F /* Assets.xcassets */,
+			);
+			path = "Radio-macOS";
+			sourceTree = "<group>";
+		};
+		5B9325951D2FEC7F0072A11F /* Radio-Core */ = {
+			isa = PBXGroup;
+			children = (
+				5B9325B41D2FF80C0072A11F /* Models */,
+				5B9325AC1D2FF58D0072A11F /* Player */,
+				5B9325AD1D2FF5990072A11F /* API */,
+				5B9325BB1D2FFBD30072A11F /* Obj-C to Swift Bridge */,
+				5B9325BD1D2FFEF60072A11F /* Media */,
+				5B93259C1D2FED310072A11F /* SharedAssets.xcassets */,
+			);
+			name = "Radio-Core";
+			sourceTree = "<group>";
+		};
+		5B9325961D2FECE80072A11F /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				5B93257B1D2FEC6F0072A11F /* LaunchScreen.storyboard */,
+				5B9325761D2FEC6F0072A11F /* Main.storyboard */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		5B9325971D2FECEE0072A11F /* Application Delegate */ = {
+			isa = PBXGroup;
+			children = (
+				5B9325721D2FEC6F0072A11F /* AppDelegate.swift */,
+			);
+			name = "Application Delegate";
+			sourceTree = "<group>";
+		};
+		5B9325981D2FECF80072A11F /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				5B93257E1D2FEC6F0072A11F /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		5B9325991D2FED020072A11F /* Application Delegate */ = {
+			isa = PBXGroup;
+			children = (
+				5B9325881D2FEC7C0072A11F /* AppDelegate.swift */,
+			);
+			name = "Application Delegate";
+			sourceTree = "<group>";
+		};
+		5B93259A1D2FED090072A11F /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				5B93258E1D2FEC7C0072A11F /* Main.storyboard */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		5B93259B1D2FED130072A11F /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				5B93259F1D2FF1DD0072A11F /* Radio-macOS.entitlements */,
+				5B9325C71D302EDC0072A11F /* Credits.rtf */,
+				5B9325911D2FEC7C0072A11F /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		5B9325AC1D2FF58D0072A11F /* Player */ = {
+			isa = PBXGroup;
+			children = (
+				5B9325B11D2FF6570072A11F /* RadioPlayer.swift */,
+			);
+			name = Player;
+			sourceTree = "<group>";
+		};
+		5B9325AD1D2FF5990072A11F /* API */ = {
+			isa = PBXGroup;
+			children = (
+				5B9325AE1D2FF5B60072A11F /* API.swift */,
+			);
+			name = API;
+			sourceTree = "<group>";
+		};
+		5B9325B41D2FF80C0072A11F /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				5B9325B51D2FF81B0072A11F /* DJ.swift */,
+				5B9325B81D2FFAC70072A11F /* Track.swift */,
+				5B9325C91D303BFD0072A11F /* Theme.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		5B9325BB1D2FFBD30072A11F /* Obj-C to Swift Bridge */ = {
+			isa = PBXGroup;
+			children = (
+				5B9325BC1D2FFC340072A11F /* Radio-Bridging-Header.h */,
+			);
+			name = "Obj-C to Swift Bridge";
+			sourceTree = "<group>";
+		};
+		5B9325BD1D2FFEF60072A11F /* Media */ = {
+			isa = PBXGroup;
+			children = (
+				5B9325BE1D2FFF090072A11F /* Fallback.mp3 */,
+			);
+			name = Media;
+			sourceTree = "<group>";
+		};
+		5B9325C41D3014200072A11F /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				5B9325C51D3014410072A11F /* PlayerViewController.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		E4CE5C3BF4C7591DE7FC835D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F8F5925C50C52E23A80F4B70 /* libPods-Radio-iOS.a */,
+				2A2771847541A164EA564792 /* libPods-Radio-macOS.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		5B93256E1D2FEC6F0072A11F /* Radio-iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5B9325811D2FEC6F0072A11F /* Build configuration list for PBXNativeTarget "Radio-iOS" */;
+			buildPhases = (
+				3E4C221DBAB330FCA6F7A4AA /* 📦 Check Pods Manifest.lock */,
+				5B93256B1D2FEC6F0072A11F /* Sources */,
+				5B93256C1D2FEC6F0072A11F /* Frameworks */,
+				5B93256D1D2FEC6F0072A11F /* Resources */,
+				CCE6BABA5E42695786229F51 /* 📦 Embed Pods Frameworks */,
+				9E248E97A3511BA3D3346C68 /* 📦 Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Radio-iOS";
+			productName = "Radio-iOS";
+			productReference = 5B93256F1D2FEC6F0072A11F /* Radio-iOS.app */;
+			productType = "com.apple.product-type.application";
+		};
+		5B9325851D2FEC7C0072A11F /* Radio-macOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5B9325921D2FEC7C0072A11F /* Build configuration list for PBXNativeTarget "Radio-macOS" */;
+			buildPhases = (
+				C1064CD9B44CD220DA171CA2 /* 📦 Check Pods Manifest.lock */,
+				5B9325821D2FEC7C0072A11F /* Sources */,
+				5B9325831D2FEC7C0072A11F /* Frameworks */,
+				5B9325841D2FEC7C0072A11F /* Resources */,
+				FA29D0B3E3D10BCC7B6325FD /* 📦 Embed Pods Frameworks */,
+				CCABA83DA7AE4ABBB13AC5FB /* 📦 Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Radio-macOS";
+			productName = "Radio-macOS";
+			productReference = 5B9325861D2FEC7C0072A11F /* Radio-macOS.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		5B9325651D2FEB120072A11F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0730;
+				TargetAttributes = {
+					5B93256E1D2FEC6F0072A11F = {
+						CreatedOnToolsVersion = 7.3.1;
+					};
+					5B9325851D2FEC7C0072A11F = {
+						CreatedOnToolsVersion = 7.3.1;
+						SystemCapabilities = {
+							com.apple.Sandbox = {
+								enabled = 1;
+							};
+						};
+					};
+				};
+			};
+			buildConfigurationList = 5B9325681D2FEB120072A11F /* Build configuration list for PBXProject "Radio" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+				"pt-BR",
+			);
+			mainGroup = 5B9325641D2FEB120072A11F;
+			productRefGroup = 5B9325701D2FEC6F0072A11F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				5B93256E1D2FEC6F0072A11F /* Radio-iOS */,
+				5B9325851D2FEC7C0072A11F /* Radio-macOS */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		5B93256D1D2FEC6F0072A11F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5B93257D1D2FEC6F0072A11F /* LaunchScreen.storyboard in Resources */,
+				5B93257A1D2FEC6F0072A11F /* Assets.xcassets in Resources */,
+				5B9325781D2FEC6F0072A11F /* Main.storyboard in Resources */,
+				5B9325BF1D2FFF090072A11F /* Fallback.mp3 in Resources */,
+				5B93259D1D2FED310072A11F /* SharedAssets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5B9325841D2FEC7C0072A11F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5B9325C81D302EDC0072A11F /* Credits.rtf in Resources */,
+				5B93259E1D2FED310072A11F /* SharedAssets.xcassets in Resources */,
+				5B93258D1D2FEC7C0072A11F /* Assets.xcassets in Resources */,
+				5B9325C01D2FFF090072A11F /* Fallback.mp3 in Resources */,
+				5B9325901D2FEC7C0072A11F /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		3E4C221DBAB330FCA6F7A4AA /* 📦 Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		9E248E97A3511BA3D3346C68 /* 📦 Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Radio-iOS/Pods-Radio-iOS-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C1064CD9B44CD220DA171CA2 /* 📦 Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		CCABA83DA7AE4ABBB13AC5FB /* 📦 Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Radio-macOS/Pods-Radio-macOS-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CCE6BABA5E42695786229F51 /* 📦 Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Radio-iOS/Pods-Radio-iOS-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FA29D0B3E3D10BCC7B6325FD /* 📦 Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Radio-macOS/Pods-Radio-macOS-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		5B93256B1D2FEC6F0072A11F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5B9325B21D2FF6570072A11F /* RadioPlayer.swift in Sources */,
+				5B9325B91D2FFAC70072A11F /* Track.swift in Sources */,
+				5B9325B61D2FF81B0072A11F /* DJ.swift in Sources */,
+				5B9325AF1D2FF5B60072A11F /* API.swift in Sources */,
+				5B9325731D2FEC6F0072A11F /* AppDelegate.swift in Sources */,
+				5B9325CA1D303BFD0072A11F /* Theme.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5B9325821D2FEC7C0072A11F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5B9325B31D2FF6570072A11F /* RadioPlayer.swift in Sources */,
+				5B9325CB1D303BFD0072A11F /* Theme.swift in Sources */,
+				5B9325BA1D2FFAC70072A11F /* Track.swift in Sources */,
+				5B9325C61D3014410072A11F /* PlayerViewController.swift in Sources */,
+				5B9325B71D2FF81B0072A11F /* DJ.swift in Sources */,
+				5B9325B01D2FF5B60072A11F /* API.swift in Sources */,
+				5B9325891D2FEC7C0072A11F /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		5B9325761D2FEC6F0072A11F /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5B9325771D2FEC6F0072A11F /* Base */,
+				5B9325A61D2FF4400072A11F /* en */,
+				5B9325A71D2FF4420072A11F /* pt-BR */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		5B93257B1D2FEC6F0072A11F /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5B93257C1D2FEC6F0072A11F /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		5B93258E1D2FEC7C0072A11F /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5B93258F1D2FEC7C0072A11F /* Base */,
+				5B9325A91D2FF4D20072A11F /* en */,
+				5B9325AB1D2FF4EF0072A11F /* pt-BR */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		5B9325691D2FEB120072A11F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+			};
+			name = Debug;
+		};
+		5B93256A1D2FEB120072A11F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+			};
+			name = Release;
+		};
+		5B93257F1D2FEC6F0072A11F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E9F6A3298A883AD99BFA65DF /* Pods-Radio-iOS.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "Radio-iOS/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "io.radio.Radio-iOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_OBJC_BRIDGING_HEADER = "Radio-Core/Obj-C to Swift Bridge/Radio-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		5B9325801D2FEC6F0072A11F /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4DDC094540CABAD7690896D0 /* Pods-Radio-iOS.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "Radio-iOS/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = "io.radio.Radio-iOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_OBJC_BRIDGING_HEADER = "Radio-Core/Obj-C to Swift Bridge/Radio-Bridging-Header.h";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		5B9325931D2FEC7C0072A11F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4E97061279985315B165D622 /* Pods-Radio-macOS.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_ENTITLEMENTS = "Radio-macOS/Radio-macOS.entitlements";
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "Radio-macOS/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "io.radio.Radio-macOS";
+				PRODUCT_NAME = "Radio-macOS";
+				SDKROOT = macosx;
+				SWIFT_OBJC_BRIDGING_HEADER = "Radio-Core/Obj-C to Swift Bridge/Radio-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		5B9325941D2FEC7C0072A11F /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C69E044791B74DB6EB15C900 /* Pods-Radio-macOS.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_ENTITLEMENTS = "Radio-macOS/Radio-macOS.entitlements";
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "Radio-macOS/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = "io.radio.Radio-macOS";
+				PRODUCT_NAME = "Radio-macOS";
+				SDKROOT = macosx;
+				SWIFT_OBJC_BRIDGING_HEADER = "Radio-Core/Obj-C to Swift Bridge/Radio-Bridging-Header.h";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		5B9325681D2FEB120072A11F /* Build configuration list for PBXProject "Radio" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5B9325691D2FEB120072A11F /* Debug */,
+				5B93256A1D2FEB120072A11F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5B9325811D2FEC6F0072A11F /* Build configuration list for PBXNativeTarget "Radio-iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5B93257F1D2FEC6F0072A11F /* Debug */,
+				5B9325801D2FEC6F0072A11F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5B9325921D2FEC7C0072A11F /* Build configuration list for PBXNativeTarget "Radio-macOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5B9325931D2FEC7C0072A11F /* Debug */,
+				5B9325941D2FEC7C0072A11F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 5B9325651D2FEB120072A11F /* Project object */;
+}

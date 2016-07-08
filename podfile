@@ -1,0 +1,11 @@
+def shared_pods
+    pod 'FreeStreamer'
+end
+
+target ‘Radio-iOS’ do
+    shared_pods
+end
+
+target ‘Radio-macOS’ do
+    shared_pods
+end
