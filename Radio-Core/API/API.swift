@@ -164,7 +164,7 @@ public struct ImageAPI: APIble {
     
     static func sessionConfiguration() -> NSURLSessionConfiguration {
         let configuration = NSURLSessionConfiguration.defaultSessionConfiguration();
-        configuration.HTTPAdditionalHeaders = [ "Content-Type" : "image/png" ]
+        configuration.HTTPAdditionalHeaders = [ "Content-Type" : "image/*" ]
         return configuration
     }
 }

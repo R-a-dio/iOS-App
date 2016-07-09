@@ -25,11 +25,13 @@ public class RadioPlayer {
     
     private var timer: NSTimer?
     private lazy var player: FSAudioStream = {
+        let preloadSize: Int32 = 150 // NUMBER IN KB
+        
         let configuration = FSStreamConfiguration()
         configuration.userAgent = NSBundle.mainBundle().bundleIdentifier
         configuration.cacheEnabled = false
         configuration.usePrebufferSizeCalculationInSeconds = false
-        configuration.requiredInitialPrebufferedByteCountForContinuousStream = 200 * 1024
+        configuration.requiredInitialPrebufferedByteCountForContinuousStream = preloadSize * 1024
         
         let radioPlayer = FSAudioStream(configuration: configuration)
         radioPlayer.volume = self.volume
