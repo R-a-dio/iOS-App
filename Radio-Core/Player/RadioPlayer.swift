@@ -7,6 +7,7 @@
 //
 
 import AVFoundation
+import FreeStreamer
 
 public protocol RadioPlayerDelegate {
     
@@ -14,7 +15,7 @@ public protocol RadioPlayerDelegate {
     func radioStarted()
     func radioStopped()
     func radioReceivedData(data: RadioData)
-    func radioUpdatedTime(currentTime: Double)
+    func radioUpdatedTime(currentTime: Int)
     
 }
 
@@ -28,7 +29,7 @@ public class RadioPlayer {
         configuration.userAgent = NSBundle.mainBundle().bundleIdentifier
         configuration.cacheEnabled = false
         configuration.usePrebufferSizeCalculationInSeconds = false
-        configuration.requiredInitialPrebufferedByteCountForContinuousStream = 250 * 1024
+        configuration.requiredInitialPrebufferedByteCountForContinuousStream = 200 * 1024
         
         let radioPlayer = FSAudioStream(configuration: configuration)
         radioPlayer.volume = self.volume
@@ -109,7 +110,7 @@ public class RadioPlayer {
     
     public func startPlaying() {
         let streamURL = NSURL(string: "https://stream.r-a-d.io/main.mp3")!
-        player.playFromURL(streamURL)
+        self.player.playFromURL(streamURL)
         
         requestAPI()
     }
@@ -149,7 +150,7 @@ public class RadioPlayer {
     
     @objc private func updateTimer() {
         if let time = currentData?.nowPlaying.currentTime {
-            currentData!.nowPlaying.currentTime = time + 1.0
+            currentData!.nowPlaying.currentTime = time + 1
             delegate?.radioUpdatedTime(time)
         }
     }

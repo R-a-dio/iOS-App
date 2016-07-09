@@ -83,14 +83,14 @@ class PlayerViewController: NSViewController, RadioPlayerDelegate {
     }
     
     func radioReceivedData(data: RadioData) {
-        labelTrack.stringValue = data.nowPlaying.displayString()
+        labelTrack.stringValue = data.nowPlaying.displayableMetadata()
         
         data.dj.image { (image) in
             self.imageDJ.image = image
         }
     }
     
-    func radioUpdatedTime(currentTime: Double) {
+    func radioUpdatedTime(currentTime: Int) {
         
     }
     

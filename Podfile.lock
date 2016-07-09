@@ -2,14 +2,17 @@ PODS:
   - FreeStreamer (3.5.6):
     - Reachability (~> 3.0)
   - Reachability (3.2)
+  - SwiftGifOrigin (1.5.3)
 
 DEPENDENCIES:
   - FreeStreamer
+  - SwiftGifOrigin
 
 SPEC CHECKSUMS:
   FreeStreamer: 4907b628e65b1a95a5beb66737a9bef01a683929
   Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96
+  SwiftGifOrigin: 893ebcceabe215a00b607328b5322b4e228347e5
 
-PODFILE CHECKSUM: 3e93549fa014ba24f549a13e7bd0abb586b7437c
+PODFILE CHECKSUM: 818c0986ef0450dcefb668071384c912fe51fd92
 
 COCOAPODS: 1.0.0

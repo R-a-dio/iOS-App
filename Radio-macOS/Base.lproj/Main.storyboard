@@ -125,15 +125,15 @@
         <scene sceneID="hIz-AP-VOD">
             <objects>
                 <viewController id="XfG-lQ-9wD" customClass="PlayerViewController" customModule="Radio_macOS" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" id="m2S-Jp-Qdl">
+                    <view key="view" misplaced="YES" id="m2S-Jp-Qdl">
                         <rect key="frame" x="0.0" y="0.0" width="396" height="377"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <stackView wantsLayer="YES" distribution="fill" orientation="vertical" alignment="centerX" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MEm-UZ-dk6">
-                                <rect key="frame" x="8" y="8" width="380" height="341"/>
+                            <stackView wantsLayer="YES" distribution="fill" orientation="vertical" alignment="centerX" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" misplaced="YES" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MEm-UZ-dk6">
+                                <rect key="frame" x="8" y="7" width="380" height="342"/>
                                 <subviews>
                                     <imageView focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bMT-iA-L47">
-                                        <rect key="frame" x="90" y="141" width="200" height="200"/>
+                                        <rect key="frame" x="90" y="142" width="200" height="200"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="bMT-iA-L47" secondAttribute="height" multiplier="1:1" id="3b1-B2-eiH"/>
                                             <constraint firstAttribute="height" constant="200" id="lWZ-xr-IxB"/>
@@ -141,7 +141,7 @@
                                         <imageCell key="cell" refusesFirstResponder="YES" focusRingType="none" alignment="left" imageScaling="proportionallyDown" id="qzv-1K-p9h"/>
                                     </imageView>
                                     <textField focusRingType="none" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="I0P-hn-fBC">
-                                        <rect key="frame" x="186" y="53" width="8" height="80"/>
+                                        <rect key="frame" x="186" y="54" width="8" height="80"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="80" id="cVO-Uj-1HP"/>
                                         </constraints>
@@ -152,10 +152,10 @@
                                         </textFieldCell>
                                     </textField>
                                     <stackView distribution="fill" orientation="vertical" alignment="centerX" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="225-3B-mLa">
-                                        <rect key="frame" x="0.0" y="0.0" width="380" height="45"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="380" height="46"/>
                                         <subviews>
                                             <slider verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="k2u-9G-AQe">
-                                                <rect key="frame" x="-2" y="27" width="384" height="20"/>
+                                                <rect key="frame" x="-2" y="27" width="384" height="21"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" priority="750" constant="380" id="U1o-f7-p40"/>
                                                 </constraints>
@@ -165,7 +165,7 @@
                                                 </connections>
                                             </slider>
                                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="t8h-BW-7oT">
-                                                <rect key="frame" x="133.5" y="-7" width="113" height="32"/>
+                                                <rect key="frame" x="134" y="-7" width="113" height="32"/>
                                                 <buttonCell key="cell" type="push" title="Play Stream" bezelStyle="rounded" alignment="center" state="on" borderStyle="border" inset="2" id="AuH-hB-TuA">
                                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                     <font key="font" metaFont="system"/>

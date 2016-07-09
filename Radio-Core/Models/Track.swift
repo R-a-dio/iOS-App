@@ -15,9 +15,10 @@ public class Track {
     public var start: NSDate?
     public var end: NSDate?
     
-    public var currentTime: Double?
+    public var currentTime: Int?
+    public var endTime: Int?
     
-    public func displayString() -> String {
+    public func displayableMetadata() -> String {
         var song = ""
         if let meta = metadata {
             var artist: String?
@@ -37,6 +38,22 @@ public class Track {
         }
         
         return song
+    }
+    
+    public func displayableTime() -> String {
+        func stringFromSeconds(seconds: Int) -> String {
+            let totalSeconds = seconds % 60
+            let totalMinutes = (seconds / 60) % 60
+            
+            return "\(String(format: "%02d", totalMinutes)):\(String(format: "%02d", totalSeconds))"
+        }
+        
+        let secondsToFinish = endTime == nil ? 0 : endTime!
+        if let time = currentTime {
+            return "\(stringFromSeconds(time)) / \(stringFromSeconds(secondsToFinish))"
+        }
+        
+        return stringFromSeconds(secondsToFinish)
     }
     
 }
