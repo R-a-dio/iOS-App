@@ -60,6 +60,7 @@ extension DJ {
             return
         }
         
+        imageData = NSMutableData(capacity: 0)
         ImageAPI.getDJImage(self, completion: { (image) in
             self.imageData = image
             _ = imageFromData()
@@ -68,12 +69,11 @@ extension DJ {
     
 }
 
-class PlayerViewController: UIViewController, RadioPlayerDelegate {
+class PlayerViewController: UIViewController, RadioPlayerDelegate, ConnectivityDataSource {
     
     // MARK: - Outlets
     
     @IBOutlet weak var imageDJ: UIImageView!
-    @IBOutlet weak var labelDJ: UILabel!
     @IBOutlet weak var labelTime: UILabel!
     @IBOutlet weak var labelTrack: UILabel!
     @IBOutlet weak var buttonStream: UIButton!
@@ -83,11 +83,16 @@ class PlayerViewController: UIViewController, RadioPlayerDelegate {
     // MARK: - Properties
     
     var player = RadioPlayer()
+    let connectivity = Connectivity()
     
     // MARK: - Controller
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        connectivity.dataSource = self
+        connectivity.startSession()
+        
         setupView()
     }
 
@@ -121,26 +126,45 @@ class PlayerViewController: UIViewController, RadioPlayerDelegate {
     func resetUI() {
         buttonStream.setTitle("Start Stream", forState: .Normal)
         labelTrack.text = ""
-        labelDJ.text = ""
         labelTime.text = ""
         imageDJ.image = nil
+    }
+    
+    // MARK: - Connectivity
+    
+    func sendTrackContext(track: Track) {
+        let trackContext = RadioContext()
+        trackContext.isPlaying = player.isPlaying
+        trackContext.nowPlaying = track
+        connectivity.sendContext(trackContext)
+    }
+    
+    func sendDJContext(dj: DJ) {
+        let djContext = RadioContext()
+        djContext.isPlaying = self.player.isPlaying
+        djContext.dj = dj
+        connectivity.sendContext(djContext)
+    }
+    
+    func sendStopContext() {
+        let context = RadioContext()
+        context.isPlaying = false
+        self.connectivity.sendContext(context)
     }
     
     // MARK: - Actions
     
     @IBAction func buttonStream(sender: UIButton) {
+        MediaManager.startSession(player)
+        
         let isPlaying = player.togglePlayer()
         sender.setTitle(isPlaying ? "Stop Stream" : "Play Stream", forState: .Normal)
-    }
-    
-    @IBAction func sliderChanged(sender: UISlider) {
-        player.volume = sender.value
     }
     
     func tapDJ(gesture: UIGestureRecognizer) {
         switch gesture.state {
         case .Ended:
-            UIView.animateWithDuration(0.3) {
+            UIView.animateWithDuration(0.2) {
                 self.viewDJOverlay.alpha = self.viewDJOverlay.alpha.isZero ? 1 : 0
             }
             
@@ -152,28 +176,63 @@ class PlayerViewController: UIViewController, RadioPlayerDelegate {
     // MARK: - RadioPlayer Delegate
     
     func radioStarted() {
+        buttonStream.setTitle("Stop Stream", forState: .Normal)
+        
+        if let data = player.currentData {
+            radioReceivedData(data)
+        }
     }
     
     func radioStopped() {
+        MediaManager.cleanCenter()
+        
+        sendStopContext()
+        
         resetUI()
     }
     
     func radioIsBuffering() {
         labelTrack.text = "Buffering"
+        buttonStream.setTitle("Stop Stream", forState: .Normal)
     }
     
     func radioReceivedData(data: RadioData) {
-        labelTrack.text = data.nowPlaying.displayableMetadata()
-        labelDJ.text = data.dj.name
-        labelDJRole.text = data.dj.role
+        if let role = data.dj.role {
+            labelDJRole.text = "\(data.dj.name)\n\n\(role)"
+        }
+        else {
+            labelDJRole.text = data.dj.name
+        }
         
         data.dj.image { (image) in
             self.imageDJ.image = image
+            self.sendDJContext(data.dj)
         }
+        
+        if player.playerState != .FsAudioStreamPlaying {
+            return
+        }
+        
+        labelTrack.text = data.nowPlaying.displayableMetadata()
+        
+        MediaManager.updateCenter(data)
+        self.sendTrackContext(data.nowPlaying)
     }
     
-    func radioUpdatedTime(currentTime: Int) {
+    func radioUpdatedTime(currentTime: Double) {
         labelTime.text = player.currentData?.nowPlaying.displayableTime()
+    }
+    
+    // MARK: - Connectivity DataSource
+    
+    func connectivityCalledMethod(method: ConnectivityMethod) {
+        switch method {
+        case .Play:
+            player.startPlaying()
+            
+        case .Stop:
+            player.stopPlaying()
+        }
     }
 
 }

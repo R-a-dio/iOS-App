@@ -82,9 +82,12 @@ public struct RadioData {
         nowPlaying.start = NSDate(timeIntervalSince1970: responseData["start_time"] as! Double)
         nowPlaying.end = NSDate(timeIntervalSince1970: responseData["end_time"] as! Double)
         
-        let startTime = Int(nowPlaying.start!.timeIntervalSince1970)
-        nowPlaying.currentTime = responseData["current"] as! Int - startTime
-        nowPlaying.endTime = Int(nowPlaying.end!.timeIntervalSince1970) - startTime
+        let startTime = nowPlaying.start!.timeIntervalSince1970
+        nowPlaying.currentTime = responseData["current"] as! Double - startTime
+        nowPlaying.endTime = nowPlaying.end!.timeIntervalSince1970 - startTime
+        
+        nowPlaying.start = NSDate().dateByAddingTimeInterval(Double(-nowPlaying.currentTime!))
+        nowPlaying.end = NSDate().dateByAddingTimeInterval(Double(nowPlaying.endTime!))
         
         let djObject = responseData["dj"] as! [String : AnyObject]
         dj = DJ(object: djObject)

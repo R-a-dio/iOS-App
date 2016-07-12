@@ -90,7 +90,7 @@ class PlayerViewController: NSViewController, RadioPlayerDelegate {
         }
     }
     
-    func radioUpdatedTime(currentTime: Int) {
+    func radioUpdatedTime(currentTime: Double) {
         
     }
     

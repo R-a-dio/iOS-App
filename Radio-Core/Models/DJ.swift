@@ -8,6 +8,13 @@
 
 import Foundation
 
+public enum DJKey: String {
+    case id
+    case djname
+    case visible
+    case role
+}
+
 public class DJ {
     
     var id: Int
@@ -23,10 +30,10 @@ public class DJ {
     var theme: Theme?
     
     init(object: [String : AnyObject]) {
-        id = object["id"] as! Int
-        name = object["djname"] as! String
-        visible = object["visible"] as? Bool
-        role = object["role"] as? String
+        id = object[DJKey.id.rawValue] as! Int
+        name = object[DJKey.djname.rawValue] as! String
+        visible = object[DJKey.visible.rawValue] as? Bool
+        role = object[DJKey.role.rawValue] as? String
     }
 
 }

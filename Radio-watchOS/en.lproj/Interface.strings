@@ -1,0 +1,15 @@
+
+/* Class = "WKInterfaceLabel"; text = "Nothing is playing on iPhone"; ObjectID = "57E-6b-we9"; */
+"57E-6b-we9.text" = "Nothing is playing on iPhone";
+
+/* Class = "WKInterfaceController"; title = "R/a/dio"; ObjectID = "AgC-eL-Hgc"; */
+"AgC-eL-Hgc.title" = "R/a/dio";
+
+/* Class = "WKInterfaceMenuItem"; title = "Play"; ObjectID = "Db3-YE-K7S"; */
+"Db3-YE-K7S.title" = "Play";
+
+/* Class = "WKInterfaceMenuItem"; title = "Stop"; ObjectID = "Gja-z6-3yA"; */
+"Gja-z6-3yA.title" = "Stop";
+
+/* Class = "WKInterfaceLabel"; text = "/ 00:00"; ObjectID = "whI-4C-XyL"; */
+"whI-4C-XyL.text" = "/ 00:00";

@@ -15,45 +15,63 @@ public class Track {
     public var start: NSDate?
     public var end: NSDate?
     
-    public var currentTime: Int?
-    public var endTime: Int?
+    public var currentTime: Double?
+    public var endTime: Double?
     
-    public func displayableMetadata() -> String {
+    public func song() -> String {
         var song = ""
         if let meta = metadata {
-            var artist: String?
-            
             let components = meta.componentsSeparatedByString(" - ")
             if components.count > 0 {
                 song = components[0]
-            }
-            
-            if components.count > 1 {
-                artist = components[1]
-            }
-            
-            if let validArtist = artist {
-                return "\(song)\n\(validArtist)"
             }
         }
         
         return song
     }
     
-    public func displayableTime() -> String {
-        func stringFromSeconds(seconds: Int) -> String {
-            let totalSeconds = seconds % 60
-            let totalMinutes = (seconds / 60) % 60
-            
-            return "\(String(format: "%02d", totalMinutes)):\(String(format: "%02d", totalSeconds))"
+    public func artist() -> String? {
+        if let meta = metadata {
+            let components = meta.componentsSeparatedByString(" - ")
+            if components.count > 1 {
+                return components[1]
+            }
         }
         
+        return nil
+    }
+    
+    public func displayableMetadata() -> String {
+        let songName = song()
+        let artistName = artist()
+        
+        if let validArtist = artistName {
+            return "\(songName)\n\(validArtist)"
+        }
+        
+        return songName
+    }
+    
+    public func displayableEndTime() -> String {
         let secondsToFinish = endTime == nil ? 0 : endTime!
-        if let time = currentTime {
-            return "\(stringFromSeconds(time)) / \(stringFromSeconds(secondsToFinish))"
+        return stringFromSeconds(secondsToFinish)
+    }
+    
+    public func displayableTime() -> String {
+        if let date = start {
+            let seconds = NSDate().timeIntervalSinceDate(date)
+            return "\(stringFromSeconds(seconds)) / \(displayableEndTime())"
         }
         
-        return stringFromSeconds(secondsToFinish)
+        return displayableEndTime()
+    }
+    
+    private func stringFromSeconds(seconds: Double) -> String {
+        let rounded = Int(seconds)
+        let totalSeconds = rounded % 60
+        let totalMinutes = (rounded / 60) % 60
+        
+        return "\(String(format: "%02d", totalMinutes)):\(String(format: "%02d", totalSeconds))"
     }
     
 }

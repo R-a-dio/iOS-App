@@ -15,7 +15,7 @@ public protocol RadioPlayerDelegate {
     func radioStarted()
     func radioStopped()
     func radioReceivedData(data: RadioData)
-    func radioUpdatedTime(currentTime: Int)
+    func radioUpdatedTime(currentTime: Double)
     
 }
 
@@ -25,7 +25,7 @@ public class RadioPlayer {
     
     private var timer: NSTimer?
     private lazy var player: FSAudioStream = {
-        let preloadSize: Int32 = 150 // NUMBER IN KB
+        let preloadSize: Int32 = 250 // SIZE IN KB
         
         let configuration = FSStreamConfiguration()
         configuration.userAgent = NSBundle.mainBundle().bundleIdentifier
@@ -37,26 +37,31 @@ public class RadioPlayer {
         radioPlayer.volume = self.volume
         
         radioPlayer.onStateChange = { state in
+            self.playerState = state
+            
             switch state {
-                
-            case .FsAudioStreamBuffering:
+            case .FsAudioStreamBuffering,
+                 .FsAudioStreamRetryingStarted:
                 self.delegate?.radioIsBuffering()
                 
             case .FsAudioStreamPlaying:
                 self.delegate?.radioStarted()
+                if let data = self.currentData {
+                    self.delegate?.radioReceivedData(data)
+                }
                 
             case .FsAudioStreamFailed,
-                 .FsAudioStreamStopped:
+                 .FsAudioStreamStopped,
+                 .FsAudioStreamRetryingFailed:
+                self.stopPlaying()
                 self.delegate?.radioStopped()
-                
+            
             default:
                 break
             }
         }
         
         radioPlayer.onFailure = { fail, error in
-            self.delegate?.radioStopped()
-            
             switch fail {
             case .FsAudioStreamErrorStreamParse:
                 NSLog("ERROR PARSING")
@@ -102,37 +107,34 @@ public class RadioPlayer {
         }
     }
     
-    public var isPlaying: Bool? {
-        get {
-            return player.isPlaying()
-        }
-    }
+    public var playerState: FSAudioStreamState = .FsAudioStreamUnknownState
+    public var isPlaying: Bool = false
     
     // MARK: - Player
     
     public func startPlaying() {
+        isPlaying = true
         let streamURL = NSURL(string: "https://stream.r-a-d.io/main.mp3")!
         self.player.playFromURL(streamURL)
         
         requestAPI()
     }
     
-    public func stopPlayer() {
+    public func stopPlaying() {
+        isPlaying = false
         stopTimer()
         player.stop()
     }
     
     public func togglePlayer() -> Bool {
-        let playing = player.isPlaying() == true
-        
-        if playing {
-            stopPlayer()
+        if isPlaying {
+            stopPlaying()
         }
         else {
             startPlaying()
         }
         
-        return !playing
+        return isPlaying
     }
     
     // MARK: Timer
