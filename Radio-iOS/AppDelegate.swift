@@ -8,11 +8,19 @@
 
 import UIKit
 
+protocol ApplicationDelegate {
+    func appWillTerminate()
+}
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
+    
+    // MARK: - Properties
+    
     var window: UIWindow?
+    var delegate: ApplicationDelegate?
 
+    // MARK: - App Delegate
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         return true
@@ -31,6 +39,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationWillTerminate(application: UIApplication) {
+        delegate?.appWillTerminate()
     }
 
 

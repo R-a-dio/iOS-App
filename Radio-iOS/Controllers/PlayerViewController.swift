@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MediaPlayer
 import AVFoundation
 import SwiftGifOrigin
 
@@ -79,10 +80,11 @@ class PlayerViewController: UIViewController, RadioPlayerDelegate, ConnectivityD
     @IBOutlet weak var buttonStream: UIButton!
     @IBOutlet weak var viewDJOverlay: UIView!
     @IBOutlet weak var labelDJRole: UILabel!
+    @IBOutlet weak var volumeView: MPVolumeView!
     
     // MARK: - Properties
     
-    var player = RadioPlayer()
+    var player = RadioPlayer.sharedPlayer
     let connectivity = Connectivity()
     
     // MARK: - Controller

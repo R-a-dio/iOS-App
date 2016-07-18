@@ -8,19 +8,26 @@
 
 import Cocoa
 
+protocol ApplicationDelegate {
+    func appWillTerminate()
+}
+
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
 
-
-
+    // MARK: - Properties
+    
+    var delegate: ApplicationDelegate?
+    
+    // MARK: - App Delegate
+    
     func applicationDidFinishLaunching(aNotification: NSNotification) {
-        // Insert code here to initialize your application
+        UserPreferences.registerDefaults()
     }
 
     func applicationWillTerminate(aNotification: NSNotification) {
-        // Insert code here to tear down your application
+        delegate?.appWillTerminate()
     }
-
 
 }
 

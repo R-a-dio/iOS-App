@@ -32,17 +32,18 @@ extension DJ {
     
 }
 
-class PlayerViewController: NSViewController, RadioPlayerDelegate {
+class PlayerViewController: NSViewController, RadioPlayerDelegate, ApplicationDelegate {
     
     // MARK: - Outlets
     
     @IBOutlet weak var imageDJ: NSImageView!
     @IBOutlet weak var labelTrack: NSTextField!
     @IBOutlet weak var buttonToggle: NSButton!
+    @IBOutlet weak var sliderVolume: NSSlider!
     
     // MARK: - Properties
     
-    var player = RadioPlayer()
+    var player = RadioPlayer.sharedPlayer
     
     // MARK: - Controller
     
@@ -51,10 +52,26 @@ class PlayerViewController: NSViewController, RadioPlayerDelegate {
         setupView()
     }
     
+    override func viewDidLayout() {
+        super.viewDidLayout()
+        imageDJ.layer?.cornerRadius = 8.0;
+        imageDJ.layer?.masksToBounds = true;
+    }
+    
     // MARK: - Setup
     
     func setupView() {
+        let appDelegate = NSApplication.sharedApplication().delegate as! AppDelegate
+        appDelegate.delegate = self
+        
+        let volume = UserPreferences.volume()
+        
         player.delegate = self
+        player.volume = volume
+        
+        sliderVolume.floatValue = volume
+        imageDJ.wantsLayer = true
+        imageDJ.imageScaling = .ScaleProportionallyUpOrDown
     }
     
     // MARK: - Actions
@@ -71,6 +88,7 @@ class PlayerViewController: NSViewController, RadioPlayerDelegate {
     // MARK: - RadioPlayer Delegate
     
     func radioStarted() {
+        buttonToggle.title = "Stop Stream"
     }
     
     func radioStopped() {
@@ -80,6 +98,7 @@ class PlayerViewController: NSViewController, RadioPlayerDelegate {
     
     func radioIsBuffering() {
         labelTrack.stringValue = "Buffering"
+        buttonToggle.title = "Stop Stream"
     }
     
     func radioReceivedData(data: RadioData) {
@@ -92,6 +111,12 @@ class PlayerViewController: NSViewController, RadioPlayerDelegate {
     
     func radioUpdatedTime(currentTime: Double) {
         
+    }
+    
+    // MARK: - Application Delegate
+    
+    func appWillTerminate() {
+        UserPreferences.saveVolume(player.volume)
     }
     
 }

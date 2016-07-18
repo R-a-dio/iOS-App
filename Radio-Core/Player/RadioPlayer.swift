@@ -10,17 +10,23 @@ import AVFoundation
 import FreeStreamer
 
 public protocol RadioPlayerDelegate {
-    
     func radioIsBuffering()
     func radioStarted()
     func radioStopped()
     func radioReceivedData(data: RadioData)
     func radioUpdatedTime(currentTime: Double)
-    
+}
+
+public protocol RadioPlayerDataDelegate {
+    func radioUpdatedData(data: RadioData?)
 }
 
 public class RadioPlayer {
 
+    // MARK: - Singleton
+    
+    public static let sharedPlayer = RadioPlayer()
+    
     // MARK: - Properties
     
     private var timer: NSTimer?
@@ -99,8 +105,15 @@ public class RadioPlayer {
     
     //private var fallbackPlayer: AVAudioPlayer?
     
-    public var currentData: RadioData?
     public var delegate: RadioPlayerDelegate?
+    public var dataDelegate: RadioPlayerDataDelegate?
+    
+    public var currentData: RadioData? {
+        didSet {
+            dataDelegate?.radioUpdatedData(currentData)
+        }
+    }
+    
     public var volume: Float = 1.0 {
         didSet {
             player.volume = volume
