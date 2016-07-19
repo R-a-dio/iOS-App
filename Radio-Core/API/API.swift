@@ -130,6 +130,10 @@ public struct RadioAPI: APIble {
     // DOCUMENTATION: https://r-a-d.io/docs/
     
     public static func getData(completion: (data: RadioData?) -> Void) {
+        if requesting == true {
+            return
+        }
+        
         requesting = true
         
         self.performRequest("", asJson: true) { (response, error) in
@@ -148,14 +152,27 @@ public struct RadioAPI: APIble {
 }
 
 public struct ImageAPI: APIble {
+    
     // MARK: - Base
     
+    static let route = "dj-image/"
     static var requesting: Bool = false
+    
+    public static func imageURL(dj: DJ) -> String {
+        return "\(baseURL())\(route)\(dj.id)"
+    }
     
     // MARK - Requests
     
     public static func getDJImage(dj: DJ, completion: (image: NSData?) -> Void) {
-        self.performRequest("dj-image/\(dj.id)", asJson: false, completion: { (response, error) in
+        if requesting == true {
+            return
+        }
+        
+        requesting = true
+        self.performRequest("\(route)\(dj.id)", asJson: false, completion: { (response, error) in
+            requesting = false
+            
             if let data = response as? NSData {
                 completion(image: data)
                 return

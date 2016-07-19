@@ -138,7 +138,7 @@
                                             <constraint firstAttribute="width" secondItem="bMT-iA-L47" secondAttribute="height" multiplier="1:1" id="3b1-B2-eiH"/>
                                             <constraint firstAttribute="height" constant="200" id="lWZ-xr-IxB"/>
                                         </constraints>
-                                        <imageCell key="cell" enabled="NO" refusesFirstResponder="YES" focusRingType="none" alignment="left" imageScaling="proportionallyDown" id="qzv-1K-p9h"/>
+                                        <imageCell key="cell" refusesFirstResponder="YES" focusRingType="none" alignment="left" imageScaling="proportionallyDown" id="qzv-1K-p9h"/>
                                     </imageView>
                                     <stackView distribution="fill" orientation="horizontal" alignment="centerY" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="b0w-Ws-b3a">
                                         <rect key="frame" x="188" y="54" width="4" height="80"/>

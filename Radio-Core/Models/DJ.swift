@@ -8,6 +8,15 @@
 
 import Foundation
 
+public enum ImageExtensionData: Int {
+    case JPEG = 0xFF
+    case PNG = 0x89
+    case GIF = 0x47
+    case TIFF_II = 0x49
+    case TIFF_MM = 0x4D
+    case NONE = 0
+}
+
 public enum DJKey: String {
     case id
     case djname

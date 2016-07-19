@@ -8,13 +8,42 @@
 
 import Cocoa
 
+extension NSImage {
+    
+    static func imagePossibleAnimatable(data: NSData) -> (image: NSImage?, animates: Bool) {
+        if data.length == 0 {
+            return (image: nil, animates: false)
+        }
+        
+        var imageExtensionData = 0
+        data.getBytes(&imageExtensionData, length: 1)
+        
+        if let imageExtension = ImageExtensionData(rawValue: imageExtensionData) {
+            switch imageExtension {
+            case .GIF:
+                return (image: NSImage(data: data), animates: true)
+                
+            default:
+                break
+            }
+        }
+        
+        return (image: NSImage(data: data), animates: false)
+    }
+    
+}
+
 extension DJ {
     
-    func image(completion: (image: NSImage) -> Void) {
+    func image(completion: (image: NSImage, animates: Bool) -> Void) {
         func imageFromData() -> Bool {
-            if let data = imageData, image = NSImage(data: data) {
-                completion(image: image)
-                return true
+            if let data = imageData {
+                let imageInfo = NSImage.imagePossibleAnimatable(data)
+                
+                if let image = imageInfo.image {
+                    completion(image: image, animates: imageInfo.animates)
+                    return true
+                }
             }
             
             return false
@@ -24,6 +53,7 @@ extension DJ {
             return
         }
         
+        imageData = NSMutableData(capacity: 0)
         ImageAPI.getDJImage(self, completion: { (image) in
             self.imageData = image
             _ = imageFromData()
@@ -54,7 +84,7 @@ class PlayerViewController: NSViewController, RadioPlayerDelegate, ApplicationDe
     
     override func viewDidLayout() {
         super.viewDidLayout()
-        imageDJ.layer?.cornerRadius = 8.0;
+        imageDJ.layer?.cornerRadius = 5.0;
         imageDJ.layer?.masksToBounds = true;
     }
     
@@ -70,8 +100,8 @@ class PlayerViewController: NSViewController, RadioPlayerDelegate, ApplicationDe
         player.volume = volume
         
         sliderVolume.floatValue = volume
-        imageDJ.wantsLayer = true
-        imageDJ.imageScaling = .ScaleProportionallyUpOrDown
+        imageDJ.imageScaling = .ScaleNone
+        //imageDJ.canDrawSubviewsIntoLayer = true // COMMENTED BECAUSE OF HUGE CPU USAGE, BUT GIFS DONT WORK :(
     }
     
     // MARK: - Actions
@@ -104,8 +134,13 @@ class PlayerViewController: NSViewController, RadioPlayerDelegate, ApplicationDe
     func radioReceivedData(data: RadioData) {
         labelTrack.stringValue = data.nowPlaying.displayableMetadata()
         
-        data.dj.image { (image) in
+        data.dj.image { (image, animates) in
+            let height = self.imageDJ.frame.size.height
+            let aspect = image.size.width / image.size.height
+            image.size = CGSizeMake(height * (aspect), height)
+            
             self.imageDJ.image = image
+            self.imageDJ.animates = animates
         }
     }
     
