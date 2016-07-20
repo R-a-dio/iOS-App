@@ -100,8 +100,9 @@ class PlayerViewController: NSViewController, RadioPlayerDelegate, ApplicationDe
         player.volume = volume
         
         sliderVolume.floatValue = volume
+        imageDJ.wantsLayer = true
         imageDJ.imageScaling = .ScaleNone
-        //imageDJ.canDrawSubviewsIntoLayer = true // COMMENTED BECAUSE OF HUGE CPU USAGE, BUT GIFS DONT WORK :(
+        //imageDJ.canDrawSubviewsIntoLayer = true // COMMENTED BECAUSE OF HUGE CPU USAGE, BUT GIFS DONT WORK WITHOUT THIS :(
     }
     
     // MARK: - Actions

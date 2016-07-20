@@ -18,7 +18,7 @@ class ListsViewController: UIViewController, UITableViewDataSource, RadioPlayerD
     // MARK: - Properties
     
     let player = RadioPlayer.sharedPlayer
-    var currentMode: ListMode = .Queue
+    private var currentMode: ListMode = .Queue
     
     // MARK: - Outlets
     
@@ -39,14 +39,16 @@ class ListsViewController: UIViewController, UITableViewDataSource, RadioPlayerD
     // MARK: - Track
     
     func getTrack(atIndex index: Int) -> Track {
-        let tracks = [Track]()
+        var tracks = [Track]()
         
-        switch currentMode {
-        case .LastPlayer:
-            tracks = data.last
-            
-        case .Queue
-            tracks = data.queue
+        if let data = player.currentData {
+            switch currentMode {
+            case .LastPlayer:
+                tracks = data.last
+                
+            case .Queue:
+                tracks = data.queue
+            }
         }
         
         return tracks[index]
@@ -55,8 +57,10 @@ class ListsViewController: UIViewController, UITableViewDataSource, RadioPlayerD
     // MARK: - Actions
     
     @IBAction func segmentedChanged(sender: UISegmentedControl) {
-        currentMode = ListMode(rawValue: sender.selectedSegmentIndex)
-        tableTracks.reloadData()
+        if let mode = ListMode(rawValue: sender.selectedSegmentIndex) {
+            currentMode = mode
+            tableTracks.reloadData()
+        }
     }
     
     // MARK: - TableView DataSource
@@ -67,7 +71,7 @@ class ListsViewController: UIViewController, UITableViewDataSource, RadioPlayerD
             case .LastPlayer:
                 return data.last.count
                 
-            case .Queue
+            case .Queue:
                 return data.queue.count
             }
         }
@@ -96,7 +100,7 @@ class ListsViewController: UIViewController, UITableViewDataSource, RadioPlayerD
                 cell.labelTime.text = "\(minutesFromInterval(interval)) minutes ago"
             }
             
-        case .Queue
+        case .Queue:
             if let date = track.start {
                 let interval = date.timeIntervalSinceDate(NSDate())
                 cell.labelTime.text = "in \(minutesFromInterval(interval)) minutes"

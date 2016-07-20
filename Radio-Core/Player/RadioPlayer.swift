@@ -56,8 +56,11 @@ public class RadioPlayer {
                     self.delegate?.radioReceivedData(data)
                 }
                 
-            case .FsAudioStreamFailed,
-                 .FsAudioStreamStopped,
+            case .FsAudioStreamFailed:
+                self.stopPlaying()
+                self.startPlaying()
+                
+            case .FsAudioStreamStopped,
                  .FsAudioStreamRetryingFailed:
                 self.stopPlaying()
                 self.delegate?.radioStopped()
