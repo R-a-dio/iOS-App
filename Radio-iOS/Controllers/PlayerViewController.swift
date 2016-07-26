@@ -61,7 +61,7 @@ extension DJ {
     
 }
 
-class PlayerViewController: UIViewController, RadioPlayerDelegate, ConnectivityDataSource {
+class PlayerViewController: UIViewController, RadioPlayerDelegate, ConnectivityDataSource, ApplicationDelegate {
     
     // MARK: - Outlets
     
@@ -83,9 +83,6 @@ class PlayerViewController: UIViewController, RadioPlayerDelegate, ConnectivityD
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        connectivity.dataSource = self
-        connectivity.startSession()
-        
         setupView()
     }
 
@@ -96,6 +93,12 @@ class PlayerViewController: UIViewController, RadioPlayerDelegate, ConnectivityD
     // MARK: - Setup
     
     func setupView() {
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        appDelegate.delegate = self
+        
+        connectivity.dataSource = self
+        connectivity.startSession()
+        
         player.delegate = self
         
         imageDJ.layer.cornerRadius = 5.0
@@ -226,6 +229,12 @@ class PlayerViewController: UIViewController, RadioPlayerDelegate, ConnectivityD
         case .Stop:
             player.stopPlaying()
         }
+    }
+    
+    // MARK: - Application Delegate
+    
+    func appWillTerminate() {
+        sendStopContext()
     }
 
 }

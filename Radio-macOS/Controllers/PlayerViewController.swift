@@ -68,6 +68,7 @@ class PlayerViewController: NSViewController, RadioPlayerDelegate, ApplicationDe
     
     @IBOutlet weak var imageDJ: NSImageView!
     @IBOutlet weak var labelTrack: NSTextField!
+    @IBOutlet weak var labelTime: NSTextField!
     @IBOutlet weak var buttonToggle: NSButton!
     @IBOutlet weak var sliderVolume: NSSlider!
     
@@ -125,10 +126,12 @@ class PlayerViewController: NSViewController, RadioPlayerDelegate, ApplicationDe
     func radioStopped() {
         buttonToggle.title = "Start Stream"
         labelTrack.stringValue = ""
+        labelTime.stringValue = ""
     }
     
     func radioIsBuffering() {
         labelTrack.stringValue = "Buffering"
+        labelTime.stringValue = ""
         buttonToggle.title = "Stop Stream"
     }
     
@@ -146,7 +149,9 @@ class PlayerViewController: NSViewController, RadioPlayerDelegate, ApplicationDe
     }
     
     func radioUpdatedTime(currentTime: Double) {
-        
+        if let time = player.currentData?.nowPlaying.displayableTime() {
+            labelTime.stringValue = time
+        }
     }
     
     // MARK: - Application Delegate
