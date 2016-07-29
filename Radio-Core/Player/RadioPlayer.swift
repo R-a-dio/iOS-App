@@ -31,17 +31,21 @@ public class RadioPlayer {
     
     private var timer: NSTimer?
     private lazy var player: FSAudioStream = {
+        // BUFFER SIZE
         let preloadSize: Int32 = 250 // SIZE IN KB
         
+        // CONFIGURING STREAM
         let configuration = FSStreamConfiguration()
         configuration.userAgent = NSBundle.mainBundle().bundleIdentifier
         configuration.cacheEnabled = false
         configuration.usePrebufferSizeCalculationInSeconds = false
         configuration.requiredInitialPrebufferedByteCountForContinuousStream = preloadSize * 1024
         
+        // INITIALIZING PLAYER
         let radioPlayer = FSAudioStream(configuration: configuration)
         radioPlayer.volume = self.volume
         
+        // SET STATE CALLBACKS
         radioPlayer.onStateChange = { state in
             self.playerState = state
             
@@ -70,6 +74,7 @@ public class RadioPlayer {
             }
         }
         
+        // SET FAILURE CALLBACKS
         radioPlayer.onFailure = { fail, error in
             switch fail {
             case .FsAudioStreamErrorStreamParse:
@@ -95,9 +100,11 @@ public class RadioPlayer {
             }
         }
         
+        // SET METADATA CALLBACKS
         radioPlayer.onMetaDataAvailable = { metadata in
             if let trackInfo = metadata["StreamTitle"] as? String {
                 if trackInfo != self.currentData?.nowPlaying.metadata {
+                    // METADATA CHANGED, REQUESTING API FOR NEW DATA
                     self.requestAPI()
                 }
             }

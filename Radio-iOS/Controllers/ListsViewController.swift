@@ -23,6 +23,7 @@ class ListsViewController: UIViewController, UITableViewDataSource, RadioPlayerD
     // MARK: - Outlets
     
     @IBOutlet weak var tableTracks: UITableView!
+    @IBOutlet weak var segmentedControl: UISegmentedControl!
     
     // MARK: - Controller
     
@@ -30,10 +31,18 @@ class ListsViewController: UIViewController, UITableViewDataSource, RadioPlayerD
         super.viewDidLoad()
         
         player.dataDelegate = self
+        resetUI()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+    
+    // MARK: - Track
+    
+    func resetUI() {
+        tableTracks.alpha = 0
+        segmentedControl.alpha = 0
     }
     
     // MARK: - Track
@@ -114,6 +123,10 @@ class ListsViewController: UIViewController, UITableViewDataSource, RadioPlayerD
     
     func radioUpdatedData(data: RadioData?) {
         tableTracks.reloadData()
+    }
+    
+    func radioIvalidatedData() {
+        resetUI()
     }
 
 }
