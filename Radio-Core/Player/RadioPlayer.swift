@@ -19,6 +19,7 @@ public protocol RadioPlayerDelegate {
 
 public protocol RadioPlayerDataDelegate {
     func radioUpdatedData(data: RadioData?)
+    func radioUpdatedSecond()
 }
 
 public class RadioPlayer {
@@ -179,6 +180,7 @@ public class RadioPlayer {
         if let time = currentData?.nowPlaying.currentTime {
             currentData!.nowPlaying.currentTime = time + 1
             delegate?.radioUpdatedTime(time)
+            dataDelegate?.radioUpdatedSecond()
         }
     }
     

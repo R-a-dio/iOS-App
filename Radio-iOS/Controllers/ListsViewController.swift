@@ -17,13 +17,14 @@ class ListsViewController: UIViewController, UITableViewDataSource, RadioPlayerD
 
     // MARK: - Properties
     
+    var elapsedSeconds = 0
+    
     let player = RadioPlayer.sharedPlayer
     private var currentMode: ListMode = .Queue
     
     // MARK: - Outlets
     
     @IBOutlet weak var tableTracks: UITableView!
-    @IBOutlet weak var segmentedControl: UISegmentedControl!
     
     // MARK: - Controller
     
@@ -31,18 +32,17 @@ class ListsViewController: UIViewController, UITableViewDataSource, RadioPlayerD
         super.viewDidLoad()
         
         player.dataDelegate = self
-        resetUI()
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        elapsedSeconds = 0
+        tableTracks.reloadData()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-    }
-    
-    // MARK: - Track
-    
-    func resetUI() {
-        tableTracks.alpha = 0
-        segmentedControl.alpha = 0
     }
     
     // MARK: - Track
@@ -97,23 +97,28 @@ class ListsViewController: UIViewController, UITableViewDataSource, RadioPlayerD
         cell.labelTime.text = "-"
         
         func minutesFromInterval(interval: Double) -> String {
-            let rounded = Int(interval)
-            let totalMinutes = (rounded / 60) % 60
-            return String(format: "%02d", totalMinutes)
-        }
-        
-        switch currentMode {
-        case .LastPlayer:
-            if let date = track.end {
-                let interval = date.timeIntervalSinceDate(NSDate())
-                cell.labelTime.text = "\(minutesFromInterval(interval)) minutes ago"
+            func formatMinutesString(minutes: Int) -> String {
+                if minutes == 0 {
+                    return "less then a minute"
+                }
+                
+                let normalized = minutes < 0 ? minutes * -1 : minutes
+                return String(format: "%02d minute\(normalized == 1 ? "" : "s")", normalized)
             }
             
-        case .Queue:
-            if let date = track.start {
-                let interval = date.timeIntervalSinceDate(NSDate())
-                cell.labelTime.text = "in \(minutesFromInterval(interval)) minutes"
+            let minutes = (Int(interval) / 60) % 60
+            let formattedString = formatMinutesString(minutes)
+            
+            if minutes < 0 {
+                return "\(formattedString) ago"
             }
+            
+            return "in \(formattedString)"
+        }
+        
+        if let date = track.start {
+            let interval = date.timeIntervalSinceDate(NSDate())
+            cell.labelTime.text = minutesFromInterval(interval)
         }
         
         return cell
@@ -122,11 +127,21 @@ class ListsViewController: UIViewController, UITableViewDataSource, RadioPlayerD
     // MARK: - RadioPlayer Data Delegate
     
     func radioUpdatedData(data: RadioData?) {
+        elapsedSeconds = 0
         tableTracks.reloadData()
     }
     
-    func radioIvalidatedData() {
-        resetUI()
+    func radioUpdatedSecond() {
+        if view.window == nil {
+            // THIS CONTROLLER IS NOT VISIBLE, DON'T BOTHER UPDATING
+            return
+        }
+        
+        elapsedSeconds += 1
+        if elapsedSeconds == 60 {
+            elapsedSeconds = 0
+            tableTracks.reloadData()
+        }
     }
 
 }

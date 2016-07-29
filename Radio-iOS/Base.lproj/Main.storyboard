@@ -261,7 +261,7 @@
                                                                         </label>
                                                                     </subviews>
                                                                 </stackView>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="252" text="in 00 minutes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7ya-BR-Kau">
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="252" horizontalCompressionResistancePriority="753" verticalCompressionResistancePriority="753" text="in 00 minutes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7ya-BR-Kau">
                                                                     <rect key="frame" x="456" y="0.0" width="88" height="53"/>
                                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -303,7 +303,6 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Lists" image="List" id="w2L-we-K3v"/>
                     <connections>
-                        <outlet property="segmentedControl" destination="tKV-Ss-fMe" id="wVX-fS-3gJ"/>
                         <outlet property="tableTracks" destination="xX6-W3-0FD" id="YhU-lc-0WY"/>
                     </connections>
                 </viewController>

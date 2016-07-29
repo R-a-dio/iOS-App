@@ -139,18 +139,7 @@ class PlayerViewController: UIViewController, RadioPlayerDelegate, ConnectivityD
     // MARK: - Tabs
     
     func hideListTab(hide: Bool) {
-        if let items = tabBarController?.viewControllers {
-            if listController == nil {
-                listController = items[1]
-            }
-            
-            if hide {
-                tabBarController?.viewControllers = [items[0]]
-            }
-            else {
-                tabBarController?.viewControllers = [items[0], listController!]
-            }
-        }
+        tabBarController?.tabBar.hidden = hide
     }
     
     // MARK: - Connectivity
@@ -199,7 +188,6 @@ class PlayerViewController: UIViewController, RadioPlayerDelegate, ConnectivityD
     // MARK: - RadioPlayer Delegate
     
     func radioStarted() {
-        hideListTab(false)
         buttonStream.setTitle("Stop Stream", forState: .Normal)
         
         if let data = player.currentData {
@@ -222,6 +210,7 @@ class PlayerViewController: UIViewController, RadioPlayerDelegate, ConnectivityD
     }
     
     func radioReceivedData(data: RadioData) {
+        hideListTab(false)
         labelDJRole.text = data.dj.name
         
         data.dj.image { (image) in
