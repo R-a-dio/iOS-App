@@ -75,6 +75,7 @@ class PlayerViewController: UIViewController, RadioPlayerDelegate, ConnectivityD
     
     // MARK: - Properties
     
+    var listController: UIViewController?
     var player = RadioPlayer.sharedPlayer
     let connectivity = Connectivity()
     
@@ -93,14 +94,18 @@ class PlayerViewController: UIViewController, RadioPlayerDelegate, ConnectivityD
     // MARK: - Setup
     
     func setupView() {
+        // BE AWARE OF APP CLOSE
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         appDelegate.delegate = self
         
+        // WATCH CONNECTIVITY
         connectivity.dataSource = self
         connectivity.startSession()
         
+        // PLAYER
         player.delegate = self
         
+        // PLAYER UI
         imageDJ.layer.cornerRadius = 5.0
         imageDJ.layer.masksToBounds = true
         
@@ -112,10 +117,15 @@ class PlayerViewController: UIViewController, RadioPlayerDelegate, ConnectivityD
         
         viewDJOverlay.alpha = 0
         
+        // MAKE LIST TAB GO AWAY
+        hideListTab(true)
+        
+        // TOUCH
         let tap = UITapGestureRecognizer(target: self, action: #selector(PlayerViewController.tapDJ))
         tap.numberOfTapsRequired = 1
         imageDJ.addGestureRecognizer(tap)
         
+        // PUT UI ON STOP STATE
         resetUI()
     }
 
@@ -124,6 +134,12 @@ class PlayerViewController: UIViewController, RadioPlayerDelegate, ConnectivityD
         labelTrack.text = ""
         labelTime.text = ""
         imageDJ.image = nil
+    }
+    
+    // MARK: - Tabs
+    
+    func hideListTab(hide: Bool) {
+        tabBarController?.tabBar.hidden = hide
     }
     
     // MARK: - Connectivity
@@ -180,9 +196,10 @@ class PlayerViewController: UIViewController, RadioPlayerDelegate, ConnectivityD
     }
     
     func radioStopped() {
-        MediaManager.cleanCenter()
-        
+        hideListTab(true)
         sendStopContext()
+        
+        MediaManager.cleanCenter()
         
         resetUI()
     }
@@ -193,12 +210,8 @@ class PlayerViewController: UIViewController, RadioPlayerDelegate, ConnectivityD
     }
     
     func radioReceivedData(data: RadioData) {
-        if let role = data.dj.role {
-            labelDJRole.text = "\(data.dj.name)\n\n\(role)"
-        }
-        else {
-            labelDJRole.text = data.dj.name
-        }
+        hideListTab(false)
+        labelDJRole.text = data.dj.name
         
         data.dj.image { (image) in
             self.imageDJ.image = image
@@ -206,6 +219,7 @@ class PlayerViewController: UIViewController, RadioPlayerDelegate, ConnectivityD
         }
         
         if player.playerState != .FsAudioStreamPlaying {
+            // PLAYER MIGHT STILL BE BUFFERING, SO NOT UPDATING THE LABEL YET
             return
         }
         

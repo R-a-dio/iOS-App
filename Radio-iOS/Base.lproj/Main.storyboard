@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="nKE-c4-30B">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="nKE-c4-30B">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -149,7 +149,7 @@
                                                             <constraint firstAttribute="height" constant="30" id="G4S-YM-qVt">
                                                                 <variation key="heightClass=compact" constant="35"/>
                                                             </constraint>
-                                                            <constraint firstAttribute="width" constant="300" id="T94-R4-oVN"/>
+                                                            <constraint firstAttribute="width" priority="750" constant="300" id="T94-R4-oVN"/>
                                                         </constraints>
                                                     </view>
                                                 </subviews>
@@ -188,7 +188,7 @@
                             <constraint firstItem="x07-4d-13t" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="yhd-f5-1MU"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Now Playing" id="ZmK-7o-Bjd"/>
+                    <tabBarItem key="tabBarItem" title="Now Playing" image="NowPlaying" id="ZmK-7o-Bjd"/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <connections>
                         <outlet property="buttonStream" destination="WNb-jx-pcH" id="Iqv-Eo-afl"/>
@@ -261,7 +261,7 @@
                                                                         </label>
                                                                     </subviews>
                                                                 </stackView>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="252" text="in 00 minutes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7ya-BR-Kau">
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="252" horizontalCompressionResistancePriority="753" verticalCompressionResistancePriority="753" text="in 00 minutes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7ya-BR-Kau">
                                                                     <rect key="frame" x="456" y="0.0" width="88" height="53"/>
                                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -301,7 +301,7 @@
                             <constraint firstItem="LVQ-95-XLd" firstAttribute="top" secondItem="e4e-EA-358" secondAttribute="bottom" id="SUu-Y9-dee"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Lists" id="w2L-we-K3v"/>
+                    <tabBarItem key="tabBarItem" title="Lists" image="List" id="w2L-we-K3v"/>
                     <connections>
                         <outlet property="tableTracks" destination="xX6-W3-0FD" id="YhU-lc-0WY"/>
                     </connections>
@@ -320,6 +320,15 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <color key="barTintColor" red="0.1333333333" green="0.1333333333" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="selectedImageTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
+                                <color key="value" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="selectedImageTintColor">
+                                <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </tabBar>
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="hHj-D8-IEm"/>
@@ -331,4 +340,9 @@
             <point key="canvasLocation" x="-306" y="1170"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="List" width="30" height="30"/>
+        <image name="NowPlaying" width="30" height="30"/>
+    </resources>
+    <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
 </document>

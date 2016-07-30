@@ -22,8 +22,8 @@ public class Track {
         var song = ""
         if let meta = metadata {
             let components = meta.componentsSeparatedByString(" - ")
-            if components.count > 0 {
-                song = components[0]
+            if components.count > 1 {
+                song = components[1]
             }
         }
         
@@ -33,8 +33,8 @@ public class Track {
     public func artist() -> String? {
         if let meta = metadata {
             let components = meta.componentsSeparatedByString(" - ")
-            if components.count > 1 {
-                return components[1]
+            if components.count > 0 {
+                return components[0]
             }
         }
         
