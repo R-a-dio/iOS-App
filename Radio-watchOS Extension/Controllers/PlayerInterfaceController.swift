@@ -79,12 +79,12 @@ class PlayerInterfaceController: WKInterfaceController, ConnectivityDelegate {
         clearAllMenuItems()
         
         if isPlaying {
-            addMenuItemWithImageNamed("Stop", title: NSLocalizedString("Stop", comment: "Stop playing the stream"), action: #selector(PlayerInterfaceController.menuStop))
+            addMenuItemWithImageNamed("Stop", title: Localized.string("Stop"), action: #selector(PlayerInterfaceController.menuStop))
             return
         }
         
-        addMenuItemWithItemIcon(.Play, title: NSLocalizedString("Play", comment: "Start playing the stream"), action: #selector(PlayerInterfaceController.menuPlay))
-        addMenuItemWithItemIcon(.Speaker, title: NSLocalizedString("Now Playing", comment: "What is currently playing"), action: #selector(PlayerInterfaceController.menuNowPlaying))
+        addMenuItemWithItemIcon(.Play, title: Localized.string("Play"), action: #selector(PlayerInterfaceController.menuPlay))
+        addMenuItemWithItemIcon(.Speaker, title: Localized.string("Now Playing"), action: #selector(PlayerInterfaceController.menuNowPlaying))
     }
     
     // MARK: - Actions
@@ -98,13 +98,13 @@ class PlayerInterfaceController: WKInterfaceController, ConnectivityDelegate {
     }
     
     func menuNowPlaying() {
-        labelNothing.setText("Loading...")
+        labelNothing.setText(Localized.string("Loading..."))
         RadioAPI.getData { (data) in
             self.timerTrack.stop()
             
             self.labelNothing.setHidden(true)
             self.groupContent.setHidden(false)
-            self.labelNothing.setText("Nothing playing on iPhone")
+            self.labelNothing.setText(Localized.string("Nothing playing on iPhone"))
             
             if let track = data?.nowPlaying {
                 self.timerTrack.setDate(track.start!)

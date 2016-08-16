@@ -1,0 +1,23 @@
+/* 
+  Localized.strings
+  Radio
+
+  Created by Rodrigo Prestes on 8/16/16.
+
+*/
+
+"Start Stream" = "Start Stream";
+"Stop Stream" = "Stop Stream";
+"Buffering" = "Buffering";
+"less then a minute" = "less then a minute";
+"minute" = "minute";
+"minutes" = "minutes";
+"in" = "in";
+"ago" = "ago";
+"Play" = "Play";
+"Stop" = "Stop";
+"Now Playing" = "Now Playing";
+"Loading..." = "Loading...";
+"Nothing playing on iPhone" = "Nothing playing on iPhone";
+"Listener" = "Listener";
+"Listeners" = "Listeners";

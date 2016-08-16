@@ -110,7 +110,7 @@ class PlayerViewController: NSViewController, RadioPlayerDelegate, ApplicationDe
     
     @IBAction func buttonStream(sender: NSButton) {
         let isPlaying = player.togglePlayer()
-        sender.title = isPlaying ? "Stop Stream" : "Play Stream"
+        sender.title = isPlaying ? Localized.string("Stop Stream") : Localized.string("Start Stream")
     }
     
     @IBAction func sliderChanged(sender: NSSlider) {
@@ -120,19 +120,19 @@ class PlayerViewController: NSViewController, RadioPlayerDelegate, ApplicationDe
     // MARK: - RadioPlayer Delegate
     
     func radioStarted() {
-        buttonToggle.title = "Stop Stream"
+        buttonToggle.title = Localized.string("Stop Stream")
     }
     
     func radioStopped() {
-        buttonToggle.title = "Start Stream"
+        buttonToggle.title = Localized.string("Start Stream")
         labelTrack.stringValue = ""
         labelTime.stringValue = ""
     }
     
     func radioIsBuffering() {
-        labelTrack.stringValue = "Buffering"
+        labelTrack.stringValue = Localized.string("Buffering")
         labelTime.stringValue = ""
-        buttonToggle.title = "Stop Stream"
+        buttonToggle.title = Localized.string("Stop Stream")
     }
     
     func radioReceivedData(data: RadioData) {

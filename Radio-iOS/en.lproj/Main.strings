@@ -1,0 +1,42 @@
+
+/* Class = "UILabel"; text = "00 minutes ago"; ObjectID = "7ya-BR-Kau"; */
+"7ya-BR-Kau.text" = "00 minutes ago";
+
+/* Class = "UILabel"; text = "00:00"; ObjectID = "DcV-Kt-n7g"; */
+"DcV-Kt-n7g.text" = "00:00";
+
+/* Class = "UILabel"; text = "DJ"; ObjectID = "GEF-hx-aSF"; */
+"GEF-hx-aSF.text" = "DJ";
+
+/* Class = "UILabel"; text = "/ 00:00"; ObjectID = "JaL-se-Snz"; */
+"JaL-se-Snz.text" = "/ 00:00";
+
+/* Class = "UILabel"; text = "Track title"; ObjectID = "KZW-ag-aMx"; */
+"KZW-ag-aMx.text" = "Track title";
+
+/* Class = "UIButton"; normalTitle = "Play Stream"; ObjectID = "WNb-jx-pcH"; */
+"WNb-jx-pcH.normalTitle" = "Play Stream";
+
+/* Class = "UILabel"; text = "Artist name"; ObjectID = "YIj-Zc-Bya"; */
+"YIj-Zc-Bya.text" = "Artist name";
+
+/* Class = "UILabel"; text = "/ 00:00"; ObjectID = "ZWT-aB-j0X"; */
+"ZWT-aB-j0X.text" = "/ 00:00";
+
+/* Class = "UITabBarItem"; title = "Now Playing"; ObjectID = "ZmK-7o-Bjd"; */
+"ZmK-7o-Bjd.title" = "Now Playing";
+
+/* Class = "UILabel"; text = "Current track"; ObjectID = "h0X-jJ-5Ls"; */
+"h0X-jJ-5Ls.text" = "Current track";
+
+/* Class = "UISegmentedControl"; tKV-Ss-fMe.segmentTitles[0] = "Last Played"; ObjectID = "tKV-Ss-fMe"; */
+"tKV-Ss-fMe.segmentTitles[0]" = "Last Played";
+
+/* Class = "UISegmentedControl"; tKV-Ss-fMe.segmentTitles[1] = "Queue"; ObjectID = "tKV-Ss-fMe"; */
+"tKV-Ss-fMe.segmentTitles[1]" = "Queue";
+
+/* Class = "UILabel"; text = "00:00"; ObjectID = "uzI-ev-t62"; */
+"uzI-ev-t62.text" = "00:00";
+
+/* Class = "UITabBarItem"; title = "Lists"; ObjectID = "w2L-we-K3v"; */
+"w2L-we-K3v.title" = "Lists";

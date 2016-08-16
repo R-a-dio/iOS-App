@@ -70,12 +70,15 @@ public struct RadioData {
     var nowPlaying: Track
     var dj: DJ
     var requestingAllowed: Bool = false
+    var listeners: Int?
     
     var last = [Track]()
     var queue = [Track]()
     
     init(response: [String : AnyObject]) {
         let responseData = response["main"] as! [String : AnyObject]
+        
+        listeners = responseData["listeners"] as? Int
         
         nowPlaying = Track()
         nowPlaying.metadata = responseData["np"] as? String

@@ -44,6 +44,12 @@
 		5BC46EC51D33DBC600E68970 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9325C91D303BFD0072A11F /* Theme.swift */; };
 		5BC46ECA1D340B8000E68970 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9325AE1D2FF5B60072A11F /* API.swift */; };
 		5BC46ECC1D341ACD00E68970 /* MediaManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC46ECB1D341ACD00E68970 /* MediaManager.swift */; };
+		5BEA1BBE1D638DD600CED737 /* Localized.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5BEA1BC21D638DD600CED737 /* Localized.strings */; };
+		5BEA1BBF1D638DD600CED737 /* Localized.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5BEA1BC21D638DD600CED737 /* Localized.strings */; };
+		5BEA1BC01D638DD600CED737 /* Localized.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5BEA1BC21D638DD600CED737 /* Localized.strings */; };
+		5BEA1BC61D638E1A00CED737 /* Localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BEA1BC51D638E1A00CED737 /* Localized.swift */; };
+		5BEA1BC71D638E1A00CED737 /* Localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BEA1BC51D638E1A00CED737 /* Localized.swift */; };
+		5BEA1BC81D638E1A00CED737 /* Localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BEA1BC51D638E1A00CED737 /* Localized.swift */; };
 		5BF7717F1D3159D100CBB02D /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5BF7717D1D3159D100CBB02D /* Interface.storyboard */; };
 		5BF771811D3159D100CBB02D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5BF771801D3159D100CBB02D /* Assets.xcassets */; };
 		5BF771881D3159D100CBB02D /* Radio-watchOS Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 5BF771871D3159D100CBB02D /* Radio-watchOS Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -132,6 +138,11 @@
 		5BC46EC71D3404C200E68970 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Interface.strings; sourceTree = "<group>"; };
 		5BC46EC91D3404C300E68970 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Interface.strings"; sourceTree = "<group>"; };
 		5BC46ECB1D341ACD00E68970 /* MediaManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MediaManager.swift; path = "Radio-Core/Player/MediaManager.swift"; sourceTree = "<group>"; };
+		5BEA1BC31D638DD800CED737 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localized.strings; sourceTree = "<group>"; };
+		5BEA1BC41D638DD900CED737 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Localized.strings"; sourceTree = "<group>"; };
+		5BEA1BC51D638E1A00CED737 /* Localized.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Localized.swift; path = "Radio-Core/Localization/Localized.swift"; sourceTree = "<group>"; };
+		5BEA1BCA1D6390C600CED737 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
+		5BEA1BCC1D6390C700CED737 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Main.strings"; sourceTree = "<group>"; };
 		5BF7717B1D3159D000CBB02D /* Radio-watchOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Radio-watchOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BF7717E1D3159D100CBB02D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
 		5BF771801D3159D100CBB02D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -275,6 +286,7 @@
 				5B5FDC3A1D3D253D00366F06 /* Preferences */,
 				5BC46EBF1D33D92600E68970 /* Watch Connectivity */,
 				5B9325BB1D2FFBD30072A11F /* Obj-C to Swift Bridge */,
+				5BEA1BB91D638D9500CED737 /* Localization */,
 				5B78EF8A1D309FD800A13F22 /* Supporting Files */,
 				5B93259C1D2FED310072A11F /* SharedAssets.xcassets */,
 			);
@@ -397,6 +409,15 @@
 				5BC46EC01D33D95500E68970 /* Connectivity.swift */,
 			);
 			name = "Watch Connectivity";
+			sourceTree = "<group>";
+		};
+		5BEA1BB91D638D9500CED737 /* Localization */ = {
+			isa = PBXGroup;
+			children = (
+				5BEA1BC51D638E1A00CED737 /* Localized.swift */,
+				5BEA1BC21D638DD600CED737 /* Localized.strings */,
+			);
+			name = Localization;
 			sourceTree = "<group>";
 		};
 		5BF7717C1D3159D100CBB02D /* Radio-watchOS */ = {
@@ -605,6 +626,7 @@
 				5B93257A1D2FEC6F0072A11F /* Assets.xcassets in Resources */,
 				5B9325781D2FEC6F0072A11F /* Main.storyboard in Resources */,
 				5B78EF8F1D30A01A00A13F22 /* Credits.rtf in Resources */,
+				5BEA1BBE1D638DD600CED737 /* Localized.strings in Resources */,
 				5B5FDC3F1D3D25CA00366F06 /* Fallback.mp3 in Resources */,
 				5B93259D1D2FED310072A11F /* SharedAssets.xcassets in Resources */,
 			);
@@ -614,6 +636,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5BEA1BBF1D638DD600CED737 /* Localized.strings in Resources */,
 				5B78EF901D30A01A00A13F22 /* Credits.rtf in Resources */,
 				5B93259E1D2FED310072A11F /* SharedAssets.xcassets in Resources */,
 				5B93258D1D2FEC7C0072A11F /* Assets.xcassets in Resources */,
@@ -635,6 +658,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5BEA1BC01D638DD600CED737 /* Localized.strings in Resources */,
 				5BF771911D3159D100CBB02D /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -750,6 +774,7 @@
 				5B9325AF1D2FF5B60072A11F /* API.swift in Sources */,
 				5B9325731D2FEC6F0072A11F /* AppDelegate.swift in Sources */,
 				5B9325CA1D303BFD0072A11F /* Theme.swift in Sources */,
+				5BEA1BC61D638E1A00CED737 /* Localized.swift in Sources */,
 				5B948ED61D3D77C60087FB46 /* TrackCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -762,6 +787,7 @@
 				5B5FDC3D1D3D257800366F06 /* UserPreferences.swift in Sources */,
 				5B9325CB1D303BFD0072A11F /* Theme.swift in Sources */,
 				5B9325BA1D2FFAC70072A11F /* Track.swift in Sources */,
+				5BEA1BC71D638E1A00CED737 /* Localized.swift in Sources */,
 				5B9325C61D3014410072A11F /* PlayerViewController.swift in Sources */,
 				5B9325B71D2FF81B0072A11F /* DJ.swift in Sources */,
 				5B9325B01D2FF5B60072A11F /* API.swift in Sources */,
@@ -774,6 +800,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5BC46EBE1D33D8BC00E68970 /* PlayerInterfaceController.swift in Sources */,
+				5BEA1BC81D638E1A00CED737 /* Localized.swift in Sources */,
 				5BF7718F1D3159D100CBB02D /* ExtensionDelegate.swift in Sources */,
 				5BC46EC21D33D95500E68970 /* Connectivity.swift in Sources */,
 				5BC46EC51D33DBC600E68970 /* Theme.swift in Sources */,
@@ -803,6 +830,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				5B9325771D2FEC6F0072A11F /* Base */,
+				5BEA1BCA1D6390C600CED737 /* en */,
+				5BEA1BCC1D6390C700CED737 /* pt-BR */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -831,6 +860,16 @@
 				5BA9F6AC1D33CE5600F7C6F3 /* Base */,
 			);
 			name = Info.plist;
+			sourceTree = "<group>";
+		};
+		5BEA1BC21D638DD600CED737 /* Localized.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5BEA1BC31D638DD800CED737 /* en */,
+				5BEA1BC41D638DD900CED737 /* pt-BR */,
+			);
+			name = Localized.strings;
+			path = "Radio-Core/Localization";
 			sourceTree = "<group>";
 		};
 		5BF7717D1D3159D100CBB02D /* Interface.storyboard */ = {

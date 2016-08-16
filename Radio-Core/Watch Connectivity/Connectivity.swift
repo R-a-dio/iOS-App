@@ -100,14 +100,16 @@ public class Connectivity: NSObject, WCSessionDelegate {
     // MARK: - Send
     
     public func sendContext(context: RadioContext) {
-        if session.activationState == .Activated {
-            do {
-                try session.updateApplicationContext(context.representation())
+        #if os(iOS)
+            if session.paired && session.watchAppInstalled && session.activationState == .Activated {
+                do {
+                    try session.updateApplicationContext(context.representation())
+                }
+                catch {
+                    NSLog("Could not update watch context")
+                }
             }
-            catch {
-                NSLog("Could not update watch context")
-            }
-        }
+        #endif
     }
     
     public func sendMethod(method: ConnectivityMethod) {

@@ -129,21 +129,21 @@ class ListsViewController: UIViewController, UITableViewDataSource, RadioPlayerD
         func minutesFromInterval(interval: Double) -> String {
             func formatMinutesString(minutes: Int) -> String {
                 if minutes == 0 {
-                    return "less then a minute"
+                    return Localized.string("less then a minute")
                 }
                 
                 let normalized = minutes < 0 ? minutes * -1 : minutes
-                return String(format: "%02d minute\(normalized == 1 ? "" : "s")", normalized)
+                return String(format: "%02d \(Localized.string(normalized == 1 ? "minute" : "minutes"))", normalized)
             }
             
             let minutes = (Int(interval) / 60) % 60
             let formattedString = formatMinutesString(minutes)
             
             if minutes < 0 {
-                return "\(formattedString) ago"
+                return "\(formattedString) \(Localized.string("ago"))"
             }
             
-            return "in \(formattedString)"
+            return "\(Localized.string("in")) \(formattedString)"
         }
         
         if let date = track.start {

@@ -134,7 +134,7 @@ class PlayerViewController: UIViewController, RadioPlayerDelegate, ConnectivityD
     }
 
     func resetUI() {
-        buttonStream.setTitle("Start Stream", forState: .Normal)
+        buttonStream.setTitle(Localized.string("Start Stream"), forState: .Normal)
         labelTrack.text = ""
         labelTimeCurrent.text = ""
         labelTimeEnd.text = ""
@@ -179,7 +179,7 @@ class PlayerViewController: UIViewController, RadioPlayerDelegate, ConnectivityD
         MediaManager.startSession(player)
         
         let isPlaying = player.togglePlayer()
-        sender.setTitle(isPlaying ? "Stop Stream" : "Play Stream", forState: .Normal)
+        sender.setTitle(isPlaying ? Localized.string("Stop Stream") : Localized.string("Start Stream"), forState: .Normal)
     }
     
     func tapDJ(gesture: UIGestureRecognizer) {
@@ -201,7 +201,7 @@ class PlayerViewController: UIViewController, RadioPlayerDelegate, ConnectivityD
     // MARK: - RadioPlayer Delegate
     
     func radioStarted() {
-        buttonStream.setTitle("Stop Stream", forState: .Normal)
+        buttonStream.setTitle(Localized.string("Stop Stream"), forState: .Normal)
         
         if let data = player.currentData {
             radioReceivedData(data)
@@ -218,13 +218,16 @@ class PlayerViewController: UIViewController, RadioPlayerDelegate, ConnectivityD
     }
     
     func radioIsBuffering() {
-        labelTrack.text = "Buffering"
-        buttonStream.setTitle("Stop Stream", forState: .Normal)
+        labelTrack.text = Localized.string("Buffering")
+        buttonStream.setTitle(Localized.string("Stop Stream"), forState: .Normal)
     }
     
     func radioReceivedData(data: RadioData) {
         hideListTab(false)
         labelDJRole.text = data.dj.name
+        if let listeners = data.listeners {
+            labelDJRole.text = "\(labelDJRole.text!)\n\(listeners) \(Localized.string(listeners == 1 ? "Listener" : "Listeners"))"
+        }
         
         data.dj.image { (image) in
             self.imageDJ.image = image
