@@ -52,6 +52,14 @@ public class Track {
         return songName
     }
     
+    public func displayableCurrentTime() -> String {
+        if let current = currentTime {
+            return stringFromSeconds(current)
+        }
+        
+        return "00:00"
+    }
+    
     public func displayableEndTime() -> String {
         let secondsToFinish = endTime == nil ? 0 : endTime!
         return stringFromSeconds(secondsToFinish)

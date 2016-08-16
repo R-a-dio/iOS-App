@@ -66,12 +66,16 @@ class PlayerViewController: UIViewController, RadioPlayerDelegate, ConnectivityD
     // MARK: - Outlets
     
     @IBOutlet weak var imageDJ: UIImageView!
-    @IBOutlet weak var labelTime: UILabel!
+    @IBOutlet weak var labelTimeCurrent: UILabel!
+    @IBOutlet weak var labelTimeEnd: UILabel!
+    @IBOutlet weak var labelTimeCurrentProgress: UILabel!
+    @IBOutlet weak var labelTimeEndProgress: UILabel!
     @IBOutlet weak var labelTrack: UILabel!
     @IBOutlet weak var buttonStream: UIButton!
     @IBOutlet weak var viewDJOverlay: UIView!
     @IBOutlet weak var labelDJRole: UILabel!
     @IBOutlet weak var volumeView: MPVolumeView!
+    @IBOutlet weak var constraintProgress: NSLayoutConstraint!
     
     // MARK: - Properties
     
@@ -132,8 +136,13 @@ class PlayerViewController: UIViewController, RadioPlayerDelegate, ConnectivityD
     func resetUI() {
         buttonStream.setTitle("Start Stream", forState: .Normal)
         labelTrack.text = ""
-        labelTime.text = ""
+        labelTimeCurrent.text = ""
+        labelTimeEnd.text = ""
+        labelTimeCurrentProgress.text = ""
+        labelTimeEndProgress.text = ""
         imageDJ.image = nil
+        viewDJOverlay.alpha = 0
+        constraintProgress.constant = view.frame.width
     }
     
     // MARK: - Tabs
@@ -176,6 +185,10 @@ class PlayerViewController: UIViewController, RadioPlayerDelegate, ConnectivityD
     func tapDJ(gesture: UIGestureRecognizer) {
         switch gesture.state {
         case .Ended:
+            if player.isPlaying == false {
+                return
+            }
+            
             UIView.animateWithDuration(0.2) {
                 self.viewDJOverlay.alpha = self.viewDJOverlay.alpha.isZero ? 1 : 0
             }
@@ -218,6 +231,14 @@ class PlayerViewController: UIViewController, RadioPlayerDelegate, ConnectivityD
             self.sendDJContext(data.dj)
         }
         
+        let currentTime = data.nowPlaying.displayableCurrentTime()
+        labelTimeCurrent.text = currentTime
+        labelTimeCurrentProgress.text = currentTime
+        
+        let endTime = "/ \(data.nowPlaying.displayableEndTime())"
+        labelTimeEnd.text = endTime
+        labelTimeEndProgress.text = endTime
+        
         if player.playerState != .FsAudioStreamPlaying {
             // PLAYER MIGHT STILL BE BUFFERING, SO NOT UPDATING THE LABEL YET
             return
@@ -230,7 +251,13 @@ class PlayerViewController: UIViewController, RadioPlayerDelegate, ConnectivityD
     }
     
     func radioUpdatedTime(currentTime: Double) {
-        labelTime.text = player.currentData?.nowPlaying.displayableTime()
+        let timeText = player.currentData?.nowPlaying.displayableCurrentTime()
+        labelTimeCurrent.text = timeText
+        labelTimeCurrentProgress.text = timeText
+        
+        if let current = player.currentData?.nowPlaying.currentTime, end = player.currentData?.nowPlaying.endTime {
+            constraintProgress.constant = end == 0 ? view.frame.width : view.frame.width * CGFloat(1.0 - (current / end))
+        }
     }
     
     // MARK: - Connectivity DataSource

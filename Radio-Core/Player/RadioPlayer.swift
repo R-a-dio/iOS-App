@@ -114,7 +114,21 @@ public class RadioPlayer {
         return radioPlayer
     }()
     
-    //private var fallbackPlayer: AVAudioPlayer?
+    private lazy var fallbackPlayer: AVAudioPlayer? = {
+        if let audioURL = NSBundle.mainBundle().URLForResource("Fallback", withExtension: "mp3") {
+            do {
+                let audioPlayer = try AVAudioPlayer(contentsOfURL: audioURL)
+                audioPlayer.volume = self.volume
+                
+                return audioPlayer
+            }
+            catch {
+                NSLog("Could not start fallback")
+            }
+        }
+        
+        return nil
+    }()
     
     public var delegate: RadioPlayerDelegate?
     public var dataDelegate: RadioPlayerDataDelegate?
@@ -128,6 +142,7 @@ public class RadioPlayer {
     public var volume: Float = 1.0 {
         didSet {
             player.volume = volume
+            fallbackPlayer?.volume = volume
         }
     }
     

@@ -9,8 +9,17 @@
 import UIKit
 
 private enum ListMode: Int {
-    case LastPlayer = 0
+    case LastPlayed = 0
     case Queue = 1
+    
+    func rowAnimation() -> UITableViewRowAnimation {
+        switch self {
+        case .LastPlayed:
+            return .Right
+        case .Queue:
+            return .Left
+        }
+    }
 }
 
 class ListsViewController: UIViewController, UITableViewDataSource, RadioPlayerDataDelegate {
@@ -25,6 +34,7 @@ class ListsViewController: UIViewController, UITableViewDataSource, RadioPlayerD
     // MARK: - Outlets
     
     @IBOutlet weak var tableTracks: UITableView!
+    @IBOutlet weak var segmentedModes: UISegmentedControl!
     
     // MARK: - Controller
     
@@ -38,7 +48,7 @@ class ListsViewController: UIViewController, UITableViewDataSource, RadioPlayerD
         super.viewDidAppear(animated)
         
         elapsedSeconds = 0
-        tableTracks.reloadData()
+        tableTracks.tableFooterView = UIView(frame: CGRectZero)
     }
 
     override func didReceiveMemoryWarning() {
@@ -52,7 +62,7 @@ class ListsViewController: UIViewController, UITableViewDataSource, RadioPlayerD
         
         if let data = player.currentData {
             switch currentMode {
-            case .LastPlayer:
+            case .LastPlayed:
                 tracks = data.last
                 
             case .Queue:
@@ -68,8 +78,28 @@ class ListsViewController: UIViewController, UITableViewDataSource, RadioPlayerD
     @IBAction func segmentedChanged(sender: UISegmentedControl) {
         if let mode = ListMode(rawValue: sender.selectedSegmentIndex) {
             currentMode = mode
-            tableTracks.reloadData()
+            tableTracks.reloadSections(NSIndexSet(index: 0), withRowAnimation: mode.rowAnimation())
         }
+    }
+    
+    // MARK: - Gestures
+    
+    @IBAction func swipeLeft(sender: AnyObject) {
+        performGesture(.Queue)
+    }
+    
+    @IBAction func swipeRight(sender: AnyObject) {
+        performGesture(.LastPlayed)
+    }
+    
+    private func performGesture(mode: ListMode) {
+        if currentMode == mode {
+            return
+        }
+        
+        currentMode = mode
+        segmentedModes.selectedSegmentIndex = mode.rawValue
+        tableTracks.reloadSections(NSIndexSet(index: 0), withRowAnimation: mode.rowAnimation())
     }
     
     // MARK: - TableView DataSource
@@ -77,7 +107,7 @@ class ListsViewController: UIViewController, UITableViewDataSource, RadioPlayerD
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if let data = player.currentData {
             switch currentMode {
-            case .LastPlayer:
+            case .LastPlayed:
                 return data.last.count
                 
             case .Queue:
