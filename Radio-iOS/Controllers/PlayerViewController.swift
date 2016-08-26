@@ -223,6 +223,10 @@ class PlayerViewController: UIViewController, RadioPlayerDelegate, ConnectivityD
     }
     
     func radioReceivedData(data: RadioData) {
+        if player.isPlaying == false {
+            return
+        }
+        
         hideListTab(false)
         labelDJRole.text = data.dj.name
         if let listeners = data.listeners {

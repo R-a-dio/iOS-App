@@ -136,6 +136,10 @@ class PlayerViewController: NSViewController, RadioPlayerDelegate, ApplicationDe
     }
     
     func radioReceivedData(data: RadioData) {
+        if player.isPlaying == false {
+            return
+        }
+        
         labelTrack.stringValue = data.nowPlaying.displayableMetadata()
         
         data.dj.image { (image, animates) in
